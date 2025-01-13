@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -43,15 +42,20 @@
 
         <section id="signup">
             <h2>Inscrivez-vous maintenant</h2>
-            <form action="submit_form.php" method="POST">
+            <form>
                 <label for="username">Nom d'utilisateur :</label>
                 <input type="text" id="username" name="username" required>
                 
-                <label for="email">Email :</label>
-                <input type="email" id="email" name="sexe" required>
+                <label for="age">Âge :</label>
+                <input type="number" id="age" name="age" required min="18" max="120">
                 
-                <label for="password">Mot de passe :</label>
-                <input type="password" id="password" name="password" required>
+                <label for="gender">Sexe :</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Sélectionnez votre sexe</option>
+                    <option value="homme">Homme</option>
+                    <option value="femme">Femme</option>
+                    <option value="autre">Autre</option>
+                </select>
                 
                 <button type="submit">S'inscrire</button>
             </form>
