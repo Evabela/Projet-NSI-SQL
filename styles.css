@@ -202,3 +202,19 @@ footer ul li a:hover {
     margin-bottom: 10px;
     font-weight: bold;
 }
+form input, form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #4d4d4d;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+}
+
+form input:focus, form select:focus {
+    border-color: #00e5ff;
+    outline: none;
+}

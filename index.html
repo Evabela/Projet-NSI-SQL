@@ -42,20 +42,46 @@
 
         <section id="signup">
             <h2>Inscrivez-vous maintenant</h2>
-            <form>
+            <form action="#" method="POST">
                 <label for="username">Nom d'utilisateur :</label>
                 <input type="text" id="username" name="username" required>
                 
                 <label for="age">Âge :</label>
-                <input type="number" id="age" name="age" required min="18" max="120">
+                <input type="number" id="age" name="age" required>
                 
-                <label for="gender">Sexe :</label>
-                <select id="gender" name="gender" required>
-                    <option value="">Sélectionnez votre sexe</option>
+                <label for="sexe">Sexe :</label>
+                <select id="sexe" name="sexe" required>
                     <option value="homme">Homme</option>
                     <option value="femme">Femme</option>
                     <option value="autre">Autre</option>
                 </select>
+                
+                <label for="game">Jeu favori :</label>
+                <input type="text" id="game" name="game" required>
+                
+                <label for="screen_time">Temps d'écran moyen (en heures) :</label>
+                <input type="number" id="screen_time" name="screen_time" required>
+                
+                <label for="addiction">As-tu une addiction ? Si oui, laquelle ?</label>
+                <input type="text" id="addiction" name="addiction">
+                
+                <label for="showers">Nombre de douches par mois :</label>
+                <input type="number" id="showers" name="showers" required>
+                
+                <label for="ex_count">Ton nombre d'ex :</label>
+                <input type="number" id="ex_count" name="ex_count" required>
+                
+                <label for="soda">Ton soda favori :</label>
+                <input type="text" id="soda" name="soda" required>
+                
+                <label for="candy">Ton bonbon favori :</label>
+                <input type="text" id="candy" name="candy" required>
+                
+                <label for="self_control">Ton pourcentage de self-control :</label>
+                <input type="number" id="self_control" name="self_control" min="0" max="100" required>
+                
+                <label for="discord">Ton Discord :</label>
+                <input type="text" id="discord" name="discord">
                 
                 <button type="submit">S'inscrire</button>
             </form>
