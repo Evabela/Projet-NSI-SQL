@@ -95,7 +95,7 @@ form label {
     font-weight: bold;
 }
 
-form input {
+form input, form textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -152,3 +152,34 @@ footer ul li a:hover {
     color: #00e5ff;
 }
 
+.contact-section {
+    padding: 40px 20px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 77, 255, 0.5);
+    max-width: 800px;
+    margin: 40px auto;
+    color: #ffffff;
+}
+
+.contact-section h2 {
+    font-size: 2rem;
+    color: #ff4dff;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.contact-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-section ul li {
+    margin-bottom: 10px;
+    font-weight: bold;
+}

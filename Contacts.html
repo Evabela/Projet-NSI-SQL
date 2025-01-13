@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page de contact - Planète Geek Dating">
+    <title>Contact - Planète Geek Dating</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="logo circulaire.webp" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo circulaire.webp" alt="Logo Planète Geek Dating">
+            <h1>Planète Geek Dating</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="#features">Fonctionnalités</a></li>
+                <li><a href="#signup">Inscription</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="contact" class="contact-section">
+            <h2>Contactez-nous</h2>
+            <p>Nous sommes une start-up émergente avec l'ambition de rendre le monde des geeks meilleur. Nous sommes passionnés par la culture geek et voulons créer un espace où les passionnés peuvent se rencontrer, échanger et s'épanouir.</p>
+            <p>Notre équipe se compose de trois membres motivés :</p>
+            <ul>
+                <li><strong>Damien Bonicel</strong> - Co-fondateur</li>
+                <li><strong>Eva Belanger</strong> - Co-fondatrice</li>
+                <li><strong>Elouan Foucher</strong> - Développeur</li>
+            </ul>
+            <p>Nous sommes basés à Nantes, mais notre vision dépasse les frontières. Rejoignez-nous dans cette aventure !</p>
+            
+            <h3>Nous contacter :</h3>
+            <p>Si vous avez des questions ou souhaitez en savoir plus, n'hésitez pas à nous envoyer un message. Nous sommes impatients de vous entendre !</p>
+            
+            <form action="submit_contact.php" method="POST">
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                
+                <button type="submit">Envoyer le message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Planète Geek Dating. Tous droits réservés.</p>
+        <ul>
+            <li><a href="#terms">Conditions d'utilisation</a></li>
+            <li><a href="#privacy">Politique de confidentialité</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
