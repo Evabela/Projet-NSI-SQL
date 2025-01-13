@@ -1,1 +1,154 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0d0d0d;
+    color: #ffffff;
+}
+
+header {
+    background: linear-gradient(135deg, #1a1a1a, #262626);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #4d4d4d;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    color: #00e5ff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #ff4dff;
+}
+
+main {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+main section {
+    margin-bottom: 60px;
+}
+
+main h2 {
+    font-size: 2rem;
+    color: #00e5ff;
+    text-shadow: 0 0 10px #00e5ff;
+}
+
+main p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #00e5ff;
+    color: #0d0d0d;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #ff4dff;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #00e5ff;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #0d0d0d;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #ff4dff;
+}
+
+footer {
+    background: linear-gradient(135deg, #1a1a1a, #262626);
+    padding: 20px;
+    text-align: center;
+    border-top: 2px solid #4d4d4d;
+}
+
+footer p {
+    margin: 0;
+    color: #00e5ff;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+footer ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+footer ul li a {
+    color: #ff4dff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer ul li a:hover {
+    color: #00e5ff;
+}
 
