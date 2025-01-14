@@ -12,10 +12,10 @@ def get_db_connection():
 
 @app.route('/')
 def index():
-    conn = get_db_connection()  # Connexion à la base de données
-    data = conn.execute('SELECT * FROM informations').fetchall()  # Récupérer les données
-    conn.close()  # Fermer la connexion
-    return render_template('index.html', data=data)  # Passer les données à la page HTML
+    #conn = get_db_connection()  # Connexion à la base de données
+    #data = conn.execute('SELECT * FROM informations').fetchall()  # Récupérer les données
+    #conn.close()  # Fermer la connexion
+    return render_template('index.html')  # Passer les données à la page HTML
 
 
 
