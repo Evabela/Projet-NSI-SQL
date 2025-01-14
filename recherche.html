@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Recherchez des membres sur Planète Geek Dating. Trouvez des personnes partageant vos passions geek.">
+    <title>Recherche - Planète Geek Dating</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="logo circulaire.webp" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo circulaire.webp" alt="Logo Planète Geek Dating">
+            <h1>Planète Geek Dating</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="Contacts.html">Contact</a></li>
+                <li><a href="recherche.html" class="active">Recherche</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="search">
+            <h2>Recherchez des membres</h2>
+            <p>Utilisez les filtres ci-dessous pour trouver des membres qui partagent vos centres d'intérêt geek.</p>
+            <form action="recherche_resultats.html" method="GET">
+                <label for="age">Âge :</label>
+                <input type="number" id="age" name="age" min="18" max="100" placeholder="Ex : 25">
+
+                <label for="sexe">Sexe :</label>
+                <select id="sexe" name="sexe">
+                    <option value="">Indifférent</option>
+                    <option value="homme">Homme</option>
+                    <option value="femme">Femme</option>
+                    <option value="autre">Autre</option>
+                </select>
+
+                <label for="jeu">Jeu favori :</label>
+                <input type="text" id="jeu" name="jeu" placeholder="Ex : Zelda, League of Legends...">
+
+                <label for="temps">Temps d'écran moyen (h/jour) :</label>
+                <input type="number" id="temps" name="temps" min="0" max="24" placeholder="Ex : 5">
+
+                <label for="addiction">As-tu une addiction ? Si oui, laquelle :</label>
+                <input type="text" id="addiction" name="addiction" placeholder="Ex : Café, jeux...">
+
+                <label for="douches">Nombre de douches par semaine :</label>
+                <input type="number" id="douches" name="douches" min="0" max="60" placeholder="Ex : 20">
+
+                <label for="exs">Nombre d'ex :</label>
+                <input type="number" id="exs" name="exs" min="0" placeholder="Ex : 3">
+
+                <label for="soda">Soda favori :</label>
+                <input type="text" id="soda" name="soda" placeholder="Ex : Coca-Cola, Fanta...">
+
+                <label for="bonbon">Bonbon favori :</label>
+                <input type="text" id="bonbon" name="bonbon" placeholder="Ex : Dragibus, Haribo...">
+
+                <label for="selfcontrol">Pourcentage de self-control :</label>
+                <input type="number" id="selfcontrol" name="selfcontrol" min="0" max="100" placeholder="Ex : 80">
+
+                <label for="discord">Ton Discord :</label>
+                <input type="text" id="discord" name="discord" placeholder="Ex : GeekMaster#1234">
+
+                <button type="submit">Rechercher</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Planète Geek Dating. Tous droits réservés.</p>
+        <ul>
+            <li><a href="#terms">Conditions d'utilisation</a></li>
+            <li><a href="#privacy">Politique de confidentialité</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

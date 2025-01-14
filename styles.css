@@ -94,32 +94,12 @@ form {
     box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
 }
 
-form label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
-    font-size: 1.1rem;
-}
 
-form input, form select {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 2px solid #4d4d4d;
-    border-radius: 5px;
-    background-color: #1a1a1a;
-    color: #ffffff;
-    font-size: 1rem;
-    transition: border 0.3s ease;
-}
 
-form input:focus, form select:focus {
-    border-color: #00e5ff;
-    outline: none;
-}
+
 
 form button {
-    width: 100%;
+    width: auto;
     padding: 12px;
     background-color: #00e5ff;
     border: 2px solid #00e5ff;
