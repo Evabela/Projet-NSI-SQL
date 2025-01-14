@@ -94,7 +94,7 @@ form {
     box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
 }
 form input, form select {
-    width: 50%;
+    width: 2%;
     margin: 0 auto;
     display: block;
 }
