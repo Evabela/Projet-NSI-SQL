@@ -5,17 +5,20 @@ app = Flask(__name__)
 
 DATABASE = 'Projet_planetegeekdating.db'
 
-def get_db_connection():
+def get_db_connection(DATABASE):
     conn = sqlite3.connect(DATABASE)
     conn.row_factory = sqlite3.Row
     return conn
 
 @app.route('/')
 def index():
-    #conn = get_db_connection()  # Connexion à la base de données
-    #data = conn.execute('SELECT * FROM informations').fetchall()  # Récupérer les données
-    #conn.close()  # Fermer la connexion
-    return render_template('index.html')  # Passer les données à la page HTML
+    conn = get_db_connection(DATABASE)  # Connexion à la base de données
+    curseur = conn.cursor()
+    data = curseur.execute('SELECT * FROM infos_joueur').fetchall()  # Récupérer les données
+    conn.close()  # Fermer la connexion
+    for elt in data :
+        print(elt)
+    return render_template('index.html', data = data)  # Passer les données à la page HTML
 
 
 
