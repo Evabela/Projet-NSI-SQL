@@ -1,3 +1,4 @@
+<<<<<<< HEAD:styles.css
 /* Global Styles */
 body {
     font-family: 'Arial', sans-serif;
@@ -198,3 +199,205 @@ form input:focus, form select:focus {
     border-color: #00e5ff;
     outline: none;
 }
+=======
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0d0d0d;
+    color: #ffffff;
+}
+
+header {
+    background: linear-gradient(135deg, #1a1a1a, #262626);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #4d4d4d;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    color: #00e5ff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #ff4dff;
+}
+
+main {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+main section {
+    margin-bottom: 60px;
+}
+
+main h2 {
+    font-size: 2rem;
+    color: #00e5ff;
+    text-shadow: 0 0 10px #00e5ff;
+}
+
+main p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #ff0000;
+    color: #0d0d0d;
+    font-weight: bold;
+    border: 2px solid #ff0000;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.cta-button:hover {
+    background-color: #ff4dff;
+    color: #fff;
+    border-color: #ff4dff;
+    transform: translateY(-3px);
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+}
+
+
+
+
+
+form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #00e5ff;
+    border: 2px solid #00e5ff;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #0d0d0d;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+form button:hover {
+    background-color: #ff4dff;
+    color: #fff;
+    border-color: #ff4dff;
+    transform: translateY(-3px);
+}
+
+footer {
+    background: linear-gradient(135deg, #1a1a1a, #262626);
+    padding: 20px;
+    text-align: center;
+    border-top: 2px solid #4d4d4d;
+}
+
+footer p {
+    margin: 0;
+    color: #00e5ff;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+footer ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+footer ul li a {
+    color: #ff4dff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer ul li a:hover {
+    color: #00e5ff;
+}
+
+.contact-section {
+    padding: 40px 20px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 77, 255, 0.5);
+    max-width: 800px;
+    margin: 40px auto;
+    color: #ffffff;
+}
+
+.contact-section h2 {
+    font-size: 2rem;
+    color: #ff4dff;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.contact-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-section ul li {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+form input, form select {
+    width:  95%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #4d4d4d;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+}
+
+form input:focus, form select:focus {
+    border-color: #00e5ff;
+    outline: none;
+}
+>>>>>>> e3ae8406fa4b884e3b619b60114cb2c379713d5c:static/styles.css
