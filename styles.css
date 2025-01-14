@@ -22,7 +22,7 @@ header .logo {
 }
 
 header .logo img {
-    height: 50px;
+    height: 70px;
     margin-right: 10px;
 }
 
@@ -68,10 +68,10 @@ main p {
 .cta-button {
     display: inline-block;
     padding: 12px 30px;
-    background-color: #ff0000;
+    background-color: #00e5ff;
     color: #0d0d0d;
     font-weight: bold;
-    border: 2px solid #ff0000;
+    border: 2px solid #00e5ff;
     border-radius: 8px;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -127,7 +127,7 @@ footer {
 
 footer p {
     margin: 0;
-    color: #00e5ff;
+    color: #ff4dff;
 }
 
 footer ul {
@@ -148,7 +148,7 @@ footer ul li a {
 }
 
 footer ul li a:hover {
-    color: #00e5ff;
+    color: #cc00ff;
 }
 
 .contact-section {
