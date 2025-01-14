@@ -9,6 +9,8 @@ def get_db_connection():
     return conn
 
 @app.route('/')
-
 def hello():
     return ("Hello there")
+
+if __name__ == "__main__":
+    app.run()
