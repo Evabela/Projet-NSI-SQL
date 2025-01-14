@@ -17,7 +17,7 @@ def index():
     data = curseur.execute('SELECT * FROM infos_joueur').fetchall()  # Récupérer les données
     conn.close()  # Fermer la connexion
     for elt in data :
-        print(elt)
+        print(dict(elt))
     return render_template('index.html', data = data)  # Passer les données à la page HTML
 
 
