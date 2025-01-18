@@ -16,11 +16,10 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#home">Accueil</a></li>
-                <li><a href="#features">Fonctionnalités</a></li>
+                <li><a href={{url_for('index')}}>Accueil</a></li>
                 <li><a href="#signup">Inscription</a></li>
-                <li><a href={{url_for('contact')}}>Contact</a></li>
-                <li><a href="recherche.html">Recherche</a></li>
+                <li><a href={{url_for('Contacts')}}>Contact</a></li>
+                <li><a href={{url_for('recherche')}}>Recherche</a></li>
             </ul>
         </nav>
     </header>
@@ -44,39 +43,63 @@
             <h2>Inscrivez-vous maintenant</h2>
             <form action="#" method="POST">
                 <label for="username">Nom d'utilisateur :</label>
+                <br>
+                <br>
                 <input type="text" id="username" name="username" required>
                 
                 <label for="age">Âge :</label>
+                <br>
+                <br>
                 <input type="number" id="age" name="age"placeholder="+ de 18 ans..." required>
                 
                 <label for="sexe">Sexe :</label>
+                <br>
+                <br>
                 <input type="text" id="sexe" name="sexe" placeholder="Ex : hélicoptère AC 130 de combat" required> 
                 
                 <label for="game">Jeu favori :</label>
+                <br>
+                <br>
                 <input type="text" id="game" name="game" required>
                 
                 <label for="screen_time">Temps d'écran moyen (en heures) :</label>
+                <br>
+                <br>
                 <input type="number" id="screen_time" name="screen_time" required>
                 
                 <label for="addiction">As-tu une addiction ? Si oui, laquelle ?</label>
+                <br>
+                <br>
                 <input type="text" id="addiction" name="addiction">
                 
                 <label for="showers">Nombre de douches par semaine :</label>
+                <br>
+                <br>
                 <input type="number" id="showers" name="showers" required>
                 
                 <label for="ex_count">Ton nombre d'ex :</label>
+                <br>
+                <br>
                 <input type="number" id="ex_count" name="ex_count" required>
                 
                 <label for="soda">Ton soda favori :</label>
+                <br>
+                <br>
                 <input type="text" id="soda" name="soda" required>
                 
                 <label for="candy">Ton bonbon favori :</label>
+                <br>
+                <br>
                 <input type="text" id="candy" name="candy" required>
                 
                 <label for="self_control">Ton pourcentage de self-control :</label>
+                <br>
+                <br>
                 <input type="number" id="self_control" name="self_control" min="0" max="100" required>
                 
                 <label for="discord">Ton Discord :</label>
+                <br>
+                <br>
                 <input type="text" id="discord" name="discord">
                 
                 <button type="submit">S'inscrire</button>

@@ -16,9 +16,10 @@
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="Contacts.html">Contact</a></li>
-                <li><a href="recherche.html" class="active">Recherche</a></li>
+                <li><a href={{url_for("index")}}>Accueil</a></li>
+                <li><a href={{url_for("index")}}#signup>Inscription</a></li>
+                <li><a href={{url_for('Contacts')}}>Contact</a></li>
+                <li><a href={{url_for('recherche')}}>Recherche</a></li>
             </ul>
         </nav>
     </header>
