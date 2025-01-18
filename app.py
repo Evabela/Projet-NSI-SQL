@@ -20,6 +20,10 @@ def index():
         print(dict(elt))
     return render_template('index.html', data = data)  # Passer les données à la page HTML
 
+@app.route('/contact')
+def contact():
+    return render_template('Contacts.html')
+
 
 
 if __name__ == "__main__":
