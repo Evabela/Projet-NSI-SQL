@@ -12,6 +12,14 @@ body {
     object-fit: cover; /* Ajuste l'image pour qu'elle remplisse bien le cadre */
 }
 
+.home_button,
+.home_button:visited,
+.home_button:hover,
+.home_button:focus {
+    color: white; /* Conserve la couleur blanche */
+    text-decoration: none; /* Aucune décoration */
+}
+
 header {
     background: linear-gradient(135deg, #1a1a1a, #262626);
     padding: 20px;
