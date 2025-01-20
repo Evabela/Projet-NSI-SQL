@@ -240,3 +240,33 @@ form input:focus, form select:focus {
     margin: 5px 0;
     line-height: 1.5;
 }
+/* Style de la flèche */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none; /* La flèche est cachée par défaut */
+    width: 50px;
+    height: 50px;
+    background-color: #00e5ff;
+    color: #0d0d0d;
+    text-align: center;
+    line-height: 50px;
+    font-size: 2rem;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.back-to-top:hover {
+    background-color: #ff4dff;
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+/* Afficher la flèche après un certain défilement */
+html:has(body:has(#top:target)) .back-to-top {
+    display: block;
+}
+
