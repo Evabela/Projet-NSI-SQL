@@ -53,8 +53,6 @@ def inscription():
     selfcontrol = request.form.get('selfcontrol', None)
     discord = request.form.get('discord', None)
     
-
-    
     # Insérer les données dans la base de données
     conn = get_db_connection(DATABASE)
     curseur = conn.cursor()
