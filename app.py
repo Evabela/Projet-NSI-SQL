@@ -40,14 +40,16 @@ def resultats():
 @app.route('/inscription', methods=['POST'])
 def inscription():
     # Récupérer les données du formulaire
-    username = request.form.get('name_id')  # Récupérer le champ "name_id"
+    username = request.form.get('name_id', None)  # Récupérer le champ "name_id"
+    sexe = request.form.get('sexe', None)
+    age = request.form.get('age', None)
     
     # Insérer les données dans la base de données
     conn = get_db_connection(DATABASE)
     curseur = conn.cursor()
     curseur.execute(
-        'INSERT INTO infos_joueur (name_id) VALUES (?)',
-        (username,)
+        'INSERT INTO infos_joueur (name_id, sexe, age) VALUES (?,?,?)',
+        (username,sexe, age)
     )
     conn.commit()
     conn.close()
