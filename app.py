@@ -45,7 +45,7 @@ def inscription():
     age = request.form.get('age', None)
     jeu = request.form.get('jeu', None)
     temps = request.form.get('temps', None)
-    addiction = request.form.get('adiction', None)
+    addiction = request.form.get('addiction', None)
     douches = request.form.get('douches', None)
     exs = request.form.get('exs', None)
     soda = request.form.get('soda', None)
