@@ -45,7 +45,7 @@ def inscription():
     age = request.form.get('age', None)
     jeu = request.form.get('jeu', None)
     temps = request.form.get('temps', None)
-    adiction = request.form.get('adiction', None)
+    addiction = request.form.get('adiction', None)
     douches = request.form.get('douches', None)
     exs = request.form.get('exs', None)
     soda = request.form.get('soda', None)
@@ -59,8 +59,8 @@ def inscription():
     conn = get_db_connection(DATABASE)
     curseur = conn.cursor()
     curseur.execute(
-        'INSERT INTO infos_joueur (name_id, sexe, age) VALUES (?,?,?)',
-        (username,sexe, age)
+        'INSERT INTO infos_joueur (name_id, sexe, age, fav_game, screen_time_moy, addiction, nb_douches, nb_ex, fav_soda, fav_bonbons, pourcent_selfcontrol, discord) VALUES (?,?,?,?,?,?,?,?,?,?)',
+        (username,sexe, age, jeu, temps, addiction, douches, exs, soda, bonbon, selfcontrol, discord)
     )
     conn.commit()
     conn.close()
