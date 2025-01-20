@@ -35,7 +35,7 @@ def recherche():
     curseur = conn.cursor()
     curseur.execute(
         'INSERT INTO infos_joueur (nom, email, score) VALUES (?, ?, ?)',
-        (nom, email, score)
+        (username, email, score)
     )
     conn.commit()
     conn.close()
@@ -49,6 +49,24 @@ def profil():
 @app.route('/resultats')
 def resultats():
     return render_template('resultats.html')
+
+@app.route('/inscription', methods=['POST'])
+def inscription():
+    # Récupérer les données du formulaire
+    username = request.form.get('name_id')  # Récupérer le champ "name_id"
+    
+    # Insérer les données dans la base de données
+    conn = get_db_connection(DATABASE)
+    curseur = conn.cursor()
+    curseur.execute(
+        'INSERT INTO infos_joueur (name_id) VALUES (?)',
+        (username,)
+    )
+    conn.commit()
+    conn.close()
+
+    # Redirection vers la page d'accueil après l'inscription
+    return redirect(url_for('index'))
 
 
 
