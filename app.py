@@ -26,19 +26,6 @@ def Contacts():
 
 @app.route('/recherche')
 def recherche():
-    username = request.form['name_id']
-    email = request.form['email']
-    score = request.form['score']
-
-    # Insérer les données dans la base
-    conn = get_db_connection(DATABASE)
-    curseur = conn.cursor()
-    curseur.execute(
-        'INSERT INTO infos_joueur (nom, email, score) VALUES (?, ?, ?)',
-        (username, email, score)
-    )
-    conn.commit()
-    conn.close()
     return render_template('recherche.html')
 
 
