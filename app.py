@@ -33,6 +33,10 @@ def recherche():
 def profil():
     return render_template('profil.html')
 
+@app.route('/resultats')
+def resultats():
+    return render_template('resultats.html')
+
 
 
 if __name__ == "__main__":
