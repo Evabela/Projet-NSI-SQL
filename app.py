@@ -29,6 +29,11 @@ def recherche():
     return render_template('recherche.html')
 
 
+@app.route('/profil')
+def profil():
+    return render_template('profil.html')
+
+
 
 if __name__ == "__main__":
     app.run(debug = True)
