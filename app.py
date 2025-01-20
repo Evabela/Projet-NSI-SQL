@@ -57,7 +57,7 @@ def inscription():
     conn = get_db_connection(DATABASE)
     curseur = conn.cursor()
     curseur.execute(
-        'INSERT INTO infos_joueur (name_id, sexe, age, fav_game, screen_time_moy, addiction, nb_douches, nb_ex, fav_soda, fav_bonbons, pourcent_selfcontrol, discord) VALUES (?,?,?,?,?,?,?,?,?,?)',
+        'INSERT INTO infos_joueur (name_id, sexe, age, fav_game, screen_time_moy, addiction, nb_douches, nb_ex, fav_soda, fav_bonbons, pourcent_selfcontrol, discord) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)',
         (username,sexe, age, jeu, temps, addiction, douches, exs, soda, bonbon, selfcontrol, discord)
     )
     conn.commit()
