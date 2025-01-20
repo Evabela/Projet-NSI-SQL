@@ -245,7 +245,6 @@ form input:focus, form select:focus {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    display: none; /* La flèche est cachée par défaut */
     width: 50px;
     height: 50px;
     background-color: #00e5ff;
@@ -265,8 +264,4 @@ form input:focus, form select:focus {
     transform: translateY(-3px);
 }
 
-/* Afficher la flèche après un certain défilement */
-html:has(body:has(#top:target)) .back-to-top {
-    display: block;
-}
 
