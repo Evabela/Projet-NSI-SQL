@@ -40,7 +40,7 @@ def resultats():
 @app.route('/inscription', methods=['POST'])
 def inscription():
     # Récupérer les données du formulaire
-    username = request.form.get('name_id', None)  # Récupérer le champ "name_id"
+    username = request.form.get('username', None)  # Récupérer le champ "name_id"
     sexe = request.form.get('sexe', None)
     age = request.form.get('age', None)
     
