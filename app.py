@@ -20,6 +20,14 @@ def index():
         print(dict(elt))
     return render_template('index.html', data = data)  # Passer les données à la page HTML
 
+@app.route('/Contacts')
+def Contacts():
+    return render_template('Contacts.html')
+
+@app.route('/recherche')
+def recherche():
+    return render_template('recherche.html')
+
 
 
 if __name__ == "__main__":
