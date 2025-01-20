@@ -43,6 +43,17 @@ def inscription():
     username = request.form.get('username', None)  # Récupérer le champ "name_id"
     sexe = request.form.get('sexe', None)
     age = request.form.get('age', None)
+    jeu = request.form.get('jeu', None)
+    temps = request.form.get('temps', None)
+    adiction = request.form.get('adiction', None)
+    douches = request.form.get('douches', None)
+    exs = request.form.get('exs', None)
+    soda = request.form.get('soda', None)
+    bonbon = request.form.get('bonbon', None)
+    selfcontrol = request.form.get('selfcontrol', None)
+    discord = request.form.get('discord', None)
+    
+
     
     # Insérer les données dans la base de données
     conn = get_db_connection(DATABASE)
