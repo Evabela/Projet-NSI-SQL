@@ -7,19 +7,6 @@ body {
     color: #ffffff;
 }
 
-.iconPGD{
-    border-radius: 50%; /* Transforme l'image en cercle */
-    object-fit: cover; /* Ajuste l'image pour qu'elle remplisse bien le cadre */
-}
-
-.home_button,
-.home_button:visited,
-.home_button:hover,
-.home_button:focus {
-    color: white; /* Conserve la couleur blanche */
-    text-decoration: none; /* Aucune décoration */
-}
-
 header {
     background: linear-gradient(135deg, #1a1a1a, #262626);
     padding: 20px;
@@ -37,8 +24,6 @@ header .logo {
 header .logo img {
     height: 50px;
     margin-right: 10px;
-    border-radius: 50%; /* Transforme l'image en cercle */
-    object-fit: cover;
 }
 
 header nav ul {
