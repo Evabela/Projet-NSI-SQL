@@ -198,3 +198,30 @@ form input:focus, form select:focus {
     border-color: #00e5ff;
     outline: none;
 }
+.profile-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.profile-card {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
+    width: 300px;
+    color: #ffffff;
+    text-align: left;
+}
+
+.profile-card h3 {
+    font-size: 1.5rem;
+    color: #00e5ff;
+    margin-bottom: 10px;
+}
+
+.profile-card p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
