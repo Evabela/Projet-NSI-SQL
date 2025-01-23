@@ -35,7 +35,12 @@ def recherche():
 @app.route('/exampleflask')
 def exampleflask():
     name = "Antoine"
-
+    conn = get_db_connection(DATABASE)
+    curseur = conn.cursor()
+    curseur.execute(
+        'SELECT * FROM infos_joueur () VALUES ()',
+        ()
+    )
     return render_template('exampleflask.html', person = name)
 
 
@@ -67,7 +72,7 @@ def inscription():
     conn = get_db_connection(DATABASE)
     curseur = conn.cursor()
     curseur.execute(
-        'INSERT INTO infos_joueur (name_id, sexe, age, fav_game, screen_time_moy, heure_sommeil, addiction, nb_douches, nb_ex, fav_soda, fav_bonbons, pourcent_selfcontrol, discord) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)',
+        'INSERT INTO infos_joueur (name_id, sexe, age, fav_game, screen_time_moy, heure_sommeil, addiction, nb_douches, nb_ex, fav_soda, fav_bonbons, pourcent_selfcontrol, discord) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',
         (username,sexe, age, jeu, temps, sommeil, addiction, douches, exs, soda, bonbon, selfcontrol, discord)
     )
     conn.commit() #validation des modifications 
