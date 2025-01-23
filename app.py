@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, make_response
 
 app = Flask(__name__)
 
@@ -32,16 +32,21 @@ def Contacts():
 def recherche():
     return render_template('recherche.html')
 
-@app.route('/exampleflask')
+@app.route('/exampleflask', methods=['POST', 'GET'])
 def exampleflask():
     name = "Antoine"
-    conn = get_db_connection(DATABASE)
-    curseur = conn.cursor()
-    curseur.execute(
-        'SELECT * FROM infos_joueur () VALUES ()',
-        ()
-    )
-    return render_template('exampleflask.html', person = name)
+    if request.method == 'POST':
+        username = request.form.get('username')  # Récupère le nom d'utilisateur
+        sexe = request.form.get('sexe')  # Récupère le sexe
+        resp = make_response(render_template('form.html', username=username, sexe=sexe))
+        resp.set_cookie('username', username)  # Définit un cookie pour le nom d'utilisateur
+        resp.set_cookie('sexe', sexe)  # Définit un cookie pour le sexe
+        return resp
+
+    # Si la page est actualisée ou visitée via GET
+    username = request.cookies.get('username')  # Récupère le cookie pour le nom d'utilisateur
+    sexe = request.cookies.get('sexe')  # Récupère le cookie pour le sexe
+    return render_template('exampleflask.html', username=username, sexe = sexe, person = name)
 
 
 @app.route('/profil')
@@ -55,7 +60,8 @@ def resultats():
 @app.route('/inscription', methods=['POST'])
 def inscription():
     # Récupérer les données du formulaire
-    username = request.form.get('username', None)  # Récupérer le champ "name_id"
+    username = request.form.get('username', None)  # Récupérer le champ "username"
+    resp = make_response(f"Nom d'utilisateur {username} enregistré !")
     sexe = request.form.get('sexe', None)
     age = request.form.get('age', None)
     jeu = request.form.get('jeu', None)

@@ -19,8 +19,19 @@
     <h1>Hello, World!</h1>
     {% endif %}
 
-    <input type="text" id="username" placeholder="Elouan Musk" name="username" required>
-    <input type="text" id="sexe" name="sexe" placeholder="Ex : hélicoptère AC 130 de combat" > 
+    <form action={{ url_for('exampleflask') }} method="GET">
+        <label for="username">Nom d'utilisateur :</label>
+        <br><br>
+        <input type="text" id="username" name="username" 
+               placeholder="{{ username or '' }}" required>
+        <br><br>
+        <label for="sexe">Sexe :</label>
+        <br><br>
+        <input type="text" id="sexe" name="sexe" 
+               placeholder="{{ sexe or '' }}">
+        <br><br>
+        <button type="submit">Modifier</button>
+    </form>
 
 </body>
 
