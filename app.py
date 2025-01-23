@@ -20,8 +20,7 @@ def index():
     print("Antoine datas")
     anto = curseur.execute("SELECT * FROM infos_joueur WHERE name_id = 'Antoine'").fetchall()
     anto = [dict(row) for row in anto]
-
-    print(anto)
+    print(anto[0]["age"])
     conn.close()  # Fermer la connexion    
 
     return render_template('index.html', data = data)  # Passer les données à la page HTML
