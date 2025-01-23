@@ -12,7 +12,12 @@
             <h1><a class="home_button" href={{url_for('index')}}>Planète Geek Dating</a></h1>
         </div>
     </header>
-    
+    <title>Hello from Flask</title>
+    {% if person %}
+    <h1>Hello {{ person }}!</h1>
+    {% else %}
+    <h1>Hello, World!</h1>
+    {% endif %}
 </body>
 
 
