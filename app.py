@@ -33,6 +33,10 @@ def Contacts():
 def recherche():
     return render_template('recherche.html')
 
+@app.route('/exampleflask')
+def exampleflask():
+    return render_template('exampleflask.html')
+
 
 @app.route('/profil')
 def profil():
