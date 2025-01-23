@@ -15,9 +15,15 @@ def index():
     conn = get_db_connection(DATABASE)  # Connexion à la base de données
     curseur = conn.cursor()
     data = curseur.execute('SELECT * FROM infos_joueur').fetchall()  # Récupérer les données
-    conn.close()  # Fermer la connexion
     for elt in data :
         print(dict(elt))
+    print("Antoine datas")
+    anto = curseur.execute("SELECT * FROM infos_joueur WHERE name_id = 'Antoine'").fetchall()
+    anto = [dict(row) for row in anto]
+
+    print(anto)
+    conn.close()  # Fermer la connexion    
+
     return render_template('index.html', data = data)  # Passer les données à la page HTML
 
 @app.route('/Contacts')
