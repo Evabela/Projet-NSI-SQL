@@ -34,7 +34,7 @@ def recherche():
 
 @app.route('/exampleflask', methods=['POST', 'GET'])
 def exampleflask():
-    name = "Antoine"
+    name = getcookie()
     
     return render_template('exampleflask.html', person = name)
 
@@ -51,7 +51,7 @@ def setcookie():
 @app.route('/getcookie')
 def getcookie():
    name = request.cookies.get('userID')
-   return '<h1>welcome ' + name + '</h1>'
+   return render_template('exampleflask.html', person = name)
 
 
 @app.route('/profil')
