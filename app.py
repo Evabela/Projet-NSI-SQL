@@ -34,9 +34,14 @@ def recherche():
 
 @app.route('/exampleflask', methods=['POST', 'GET'])
 def exampleflask():
-    name = getcookie()
+    if request.method == 'POST':
+        user = request.form['nm']
+        resp = make_response(render_template('exampleflask.html'))
+        resp.set_cookie('userID', user)
+
+    name = request.cookies.get('userID')
     
-    return render_template('exampleflask.html', person = name)
+    return render_template('exampleflask.html', person = name, user_id = name)
 
 @app.route('/setcookie', methods = ['POST', 'GET'])
 def setcookie():
@@ -51,7 +56,7 @@ def setcookie():
 @app.route('/getcookie')
 def getcookie():
    name = request.cookies.get('userID')
-   return render_template('exampleflask.html', person = name)
+   return render_template('exampleflask.html', person = name, user_id = name)
 
 
 @app.route('/profil')
