@@ -19,6 +19,10 @@
     <h2>Hello, World!</h2>
     {% endif %}
 
+    {% if user_id %}
+    <h1>Welcome {{ user_id }}!</h1>
+    {% endif %}
+
     <form action = "{{ url_for('setcookie') }}" method = "POST">
         <p><h3>Enter userID</h3></p>
         <p><input type = 'text' name = 'nm'/></p>
@@ -27,7 +31,6 @@
     <form action = "{{ url_for('getcookie') }}" method = "GET">
         <p>Est ce que ça marche ?</p>
         <p><input type = 'submit' value = 'Pull'/></p>
-
     </form>
 
 </body>

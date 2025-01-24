@@ -35,18 +35,8 @@ def recherche():
 @app.route('/exampleflask', methods=['POST', 'GET'])
 def exampleflask():
     name = "Antoine"
-    if request.method == 'POST':
-        username = request.form.get('username')  # Récupère le nom d'utilisateur
-        sexe = request.form.get('sexe')  # Récupère le sexe
-        resp = make_response(render_template('exampleflask.html', username=username, sexe=sexe))
-        resp.set_cookie('username', username)  # Définit un cookie pour le nom d'utilisateur
-        resp.set_cookie('sexe', sexe)  # Définit un cookie pour le sexe
-        return resp
-
-    # Si la page est actualisée ou visitée via GET
-    username = request.cookies.get('username')  # Récupère le cookie pour le nom d'utilisateur
-    sexe = request.cookies.get('sexe')  # Récupère le cookie pour le sexe
-    return render_template('exampleflask.html', username=username, sexe = sexe, person = name)
+    
+    return render_template('exampleflask.html', person = name)
 
 @app.route('/setcookie', methods = ['POST', 'GET'])
 def setcookie():
