@@ -48,6 +48,21 @@ def exampleflask():
     sexe = request.cookies.get('sexe')  # Récupère le cookie pour le sexe
     return render_template('exampleflask.html', username=username, sexe = sexe, person = name)
 
+@app.route('/setcookie', methods = ['POST', 'GET'])
+def setcookie():
+   if request.method == 'POST':
+    user = request.form['nm']
+    resp = make_response(render_template('exampleflask.html'))
+    resp.set_cookie('userID', user)
+    print("hey")
+    print(resp)
+   return resp
+
+@app.route('/getcookie')
+def getcookie():
+   name = request.cookies.get('userID')
+   return '<h1>welcome ' + name + '</h1>'
+
 
 @app.route('/profil')
 def profil():
