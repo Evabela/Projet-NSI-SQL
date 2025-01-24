@@ -34,15 +34,14 @@ def recherche():
 
 @app.route('/exampleflask', methods=['POST', 'GET'])
 def exampleflask():
+    user=''
     if request.method == 'POST':
         user = request.form['nm']
         resp = make_response(render_template('exampleflask.html'))
         resp.set_cookie('userID', user)
-    if request.method == 'GET':
-        name = request.cookies.get('userID')
-    print(name)
+    #name = request.cookies.get('userID')
     
-    return render_template('exampleflask.html', person = name, user_id = name)
+    return render_template('exampleflask.html', person = user, user_id = user)
 
 @app.route('/setcookie', methods = ['POST', 'GET'])
 def setcookie():
