@@ -34,34 +34,22 @@ def recherche():
 
 @app.route('/exampleflask', methods=['POST', 'GET'])
 def exampleflask():
+    
     user=''
     if request.method == 'POST':
         user = request.form['nm']
         resp = make_response(render_template('exampleflask.html'))
         resp.set_cookie('userID', user)
-    #name = request.cookies.get('userID')
     
     return render_template('exampleflask.html', person = user, user_id = user)
 
-@app.route('/setcookie', methods = ['POST', 'GET'])
-def setcookie():
-   if request.method == 'POST':
-    user = request.form['nm']
-    resp = make_response(render_template('exampleflask.html'))
-    resp.set_cookie('userID', user)
-    print("hey")
-    print(resp)
-   return resp
-
-@app.route('/getcookie')
-def getcookie():
-   name = request.cookies.get('userID')
-   return render_template('exampleflask.html', person = name, user_id = name)
 
 
 @app.route('/profil')
 def profil():
-    return render_template('profil.html')
+    username = request.cookies.get('username')
+
+    return render_template('profil.html', username = username)
 
 @app.route('/resultats')
 def resultats():
@@ -71,7 +59,11 @@ def resultats():
 def inscription():
     # Récupérer les données du formulaire
     username = request.form.get('username', None)  # Récupérer le champ "username"
-    resp = make_response(f"Nom d'utilisateur {username} enregistré !")
+
+    if request.method == 'POST':
+        resp = make_response(render_template('index.html'))
+        resp.set_cookie('username', username)
+
     sexe = request.form.get('sexe', None)
     age = request.form.get('age', None)
     jeu = request.form.get('jeu', None)

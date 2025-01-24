@@ -26,12 +26,8 @@
 
     <form action = "{{ url_for('exampleflask') }}" method = "POST">
         <p><h3>Enter userID</h3></p>
-        <p><input type = 'text' name = 'nm'/></p>
+        <p><input type = 'text' name = 'nm' value="{% if user_id %}{{ user_id }}{% endif %}"/></p>
         <p><input type = 'submit' value = 'Login'/></p> 
-    </form>
-    <form action = "{{ url_for('getcookie') }}" method = "GET">
-        <p>Est ce que ça marche ?</p>
-        <p><input type = 'submit' value = 'Pull'/></p>
     </form>
 
     

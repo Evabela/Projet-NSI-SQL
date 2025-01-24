@@ -45,7 +45,7 @@
                 <label for="username">Nom d'utilisateur :</label>
                 <br>
                 <br>
-                <input type="text" id="username" name="username" placeholder="Ex : Elouan Musk" required>
+                <input type="text" id="username" name="username" placeholder="Ex : Elouan Musk" value="{% if username %}{{ username }}{% endif %}" required>
                 
                 <label for="age">Âge :</label>
                 <br>
