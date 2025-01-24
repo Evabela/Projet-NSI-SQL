@@ -34,7 +34,7 @@ def recherche():
 
 @app.route('/exampleflask', methods=['POST', 'GET'])
 def exampleflask():
-    user=''
+    user=' '
     if request.method == 'POST':
         user = request.form['nm']
         resp = make_response(render_template('exampleflask.html'))
