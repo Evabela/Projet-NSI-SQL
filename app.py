@@ -38,8 +38,9 @@ def exampleflask():
         user = request.form['nm']
         resp = make_response(render_template('exampleflask.html'))
         resp.set_cookie('userID', user)
-
-    name = request.cookies.get('userID')
+    if request.method == 'GET':
+        name = request.cookies.get('userID')
+    print(name)
     
     return render_template('exampleflask.html', person = name, user_id = name)
 
