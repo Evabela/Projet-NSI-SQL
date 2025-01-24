@@ -38,7 +38,7 @@ def exampleflask():
     if request.method == 'POST':
         username = request.form.get('username')  # Récupère le nom d'utilisateur
         sexe = request.form.get('sexe')  # Récupère le sexe
-        resp = make_response(render_template('form.html', username=username, sexe=sexe))
+        resp = make_response(render_template('exampleflask.html', username=username, sexe=sexe))
         resp.set_cookie('username', username)  # Définit un cookie pour le nom d'utilisateur
         resp.set_cookie('sexe', sexe)  # Définit un cookie pour le sexe
         return resp
