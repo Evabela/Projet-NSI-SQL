@@ -5,31 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Recherchez des membres sur Planète Geek Dating. Trouvez des personnes partageant vos passions geek.">
     <title>Recherche - Planète Geek Dating</title>
-    <link rel="stylesheet" href={{url_for('static', filename='styles.css')}}>
-    <link rel="icon" href={{url_for('static', filename='logo rond.png')}} type="image/x-icon">
+    <link rel="stylesheet" href={{url_for('static', filename='styles.css'>
+    <link rel="icon" href={{url_for('static', filename='logo rond.png' type="image/x-icon">
 </head>
 <body id="top">
     <header>
         <div class="logo">
-            <img src={{url_for('static', filename='logo circulaire.webp')}} alt="Logo Planète Geek Dating">
-            <h1><a class="home_button" href={{url_for('index')}}>Planète Geek Dating</a></h1>
+            <!-- Logo du site -->
+            <img src="{{url_for('static', filename='logo circulaire.webp')}}" alt="Logo Planète Geek Dating">
+            <!-- Titre principal avec un lien vers l'accueil -->
+            <h1><a class="home_button" href="{{url_for('index')}}">Planète Geek Dating</a></h1>
         </div>
+        <!-- Menu de navigation -->
         <nav>
             <ul>
-                <li><a href={{url_for("index")}}>Accueil</a></li>
-                <li><a href={{url_for("index")}}#signup>Inscription</a></li>
-                <li><a href={{url_for('Contacts')}}>Contact</a></li>
-                <li><a href={{url_for('recherche')}}>Recherche</a></li>
-                <li><a href={{url_for('profil')}}>Prooooooooooooooooooooooooooooooooooooooooooooofil</a></li>
+                <li><a href="{{url_for('index')}}">Accueil</a></li>
+                <li><a href="{{url_for('index', section='signup')}}">Inscription</a></li>
+                <li><a href="{{url_for('Contacts')}}">Contact</a></li>
+                <li><a href="{{url_for('recherche')}}">Recherche</a></li>
+                <li><a href="{{url_for('profil')}}">Profil</a></li>
             </ul>
         </nav>
     </header>
+    
 
     <main>
         <section id="search">
             <h2>Recherchez des membres</h2>
             <p>Utilisez les filtres ci-dessous pour trouver des membres qui partagent vos centres d'intérêt geek.</p>
-            <form action={{url_for('resultats')}} method="GET">
+            <form action={{url_for('resultats') method="GET">
                 <label for="age">Âge :</label>
                 <br>
                 <br>

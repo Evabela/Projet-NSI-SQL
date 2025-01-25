@@ -1,29 +1,33 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr"> <!-- Langue de la page -->
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"><!-- Encodage de la page -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Planète Geek Dating - Le site de rencontre dédié aux passionnés de technologie, de science-fiction, de jeux vidéo et de culture geek.">
     <title>Profil - Planète Geek Dating</title>
-    <link rel="stylesheet" href={{url_for('static', filename='styles.css')}}>
-    <link rel="icon" href={{url_for('static', filename='logo rond.png')}} type="image/webp">
+    <link rel="stylesheet" href={{url_for('static', filename='styles.css'>
+    <link rel="icon" href={{url_for('static', filename='logo rond.png' type="image/webp"><!-- icon de l'onglet -->
 </head>
-<body id="top">
+<body id="top"><!-- id pour le bouton remonter en haut -->
     <header>
         <div class="logo">
-            <img src={{url_for('static', filename='logo circulaire.webp')}} alt="Logo Planète Geek Dating">
-            <h1><a class="home_button" href={{url_for('index')}}>Planète Geek Dating</a></h1>
+            <!-- Logo du site -->
+            <img src="{{url_for('static', filename='logo circulaire.webp')}}" alt="Logo Planète Geek Dating">
+            <!-- Titre principal avec un lien vers l'accueil -->
+            <h1><a class="home_button" href="{{url_for('index')}}">Planète Geek Dating</a></h1>
         </div>
+        <!-- Menu de navigation -->
         <nav>
-            <ul>
-                <li><a href={{url_for('index')}}>Accueil</a></li>
-                <li><a href={{url_for("index")}}#signup>Inscription</a></li>
-                <li><a href={{url_for('Contacts')}}>Contact</a></li>
-                <li><a href={{url_for('recherche')}}>Recherche</a></li>
-                <li><a href={{url_for('profil')}}>Prooooooooooooooooooooooooooooooooooooooooooooofil</a></li>
+            <ul><!-- Liste des liens -->
+                <li><a href="{{url_for('index')}}">Accueil</a></li>
+                <li><a href="{{url_for('index', section='signup')}}">Inscription</a></li>
+                <li><a href="{{url_for('Contacts')}}">Contact</a></li>
+                <li><a href="{{url_for('recherche')}}">Recherche</a></li>
+                <li><a href="{{url_for('profil')}}">Profil</a></li>
             </ul>
         </nav>
     </header>
+    
 
     <main>
         <section id="home">
@@ -42,7 +46,7 @@
         <section id="signup">
             <h2>Votre Profil</h2>
             <form action="#" method="POST">
-                <label for="username">Nom d'utilisateur :</label>
+                <label for="username">Nom d'utilisateur :</label> 
                 <br>
                 <br>
                 <input type="text" id="username" name="username" placeholder="Ex : Elouan Musk" required>
@@ -107,13 +111,13 @@
         </section>
     </main>
 
-    <footer>
+    <footer> <!-- Pied de page -->
         <p>&copy; 2025 Planète Geek Dating. Tous droits réservés.</p>
         <ul>
-            <li><a href="#terms">Conditions d'utilisation</a></li>
-            <li><a href="#privacy">Politique de confidentialité</a></li>
+            <li><a href="#">Conditions d'utilisation</a></li>
+            <li><a href="">Politique de confidentialité</a></li>
         </ul>
     </footer>
-    <a href="#top" class="back-to-top" aria-label="Remonter en haut">⬆️</a>
+    <a href="#top" class="back-to-top" aria-label="Remonter en haut">⬆️</a> <!-- Remonter en haut -->
 </body>
 </html>
