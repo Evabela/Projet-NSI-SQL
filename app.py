@@ -48,7 +48,6 @@ def exampleflask():
 @app.route('/profil')
 def profil():
     username = request.cookies.get('username')
-
     return render_template('profil.html', username = username)
 
 @app.route('/resultats')
@@ -59,11 +58,6 @@ def resultats():
 def inscription():
     # Récupérer les données du formulaire
     username = request.form.get('username', None)  # Récupérer le champ "username"
-
-    if request.method == 'POST':
-        resp = make_response(render_template('index.html'))
-        resp.set_cookie('username', username)
-
     sexe = request.form.get('sexe', None)
     age = request.form.get('age', None)
     jeu = request.form.get('jeu', None)
@@ -86,9 +80,14 @@ def inscription():
     conn.commit() #validation des modifications 
     conn.close()
 
+    #on le met à la fin car contient un return
+    if request.method == 'POST':
+        resp = make_response(render_template('index.html'))
+        resp.set_cookie('username', username)
+        return resp
+
     # Redirection vers la page d'accueil après l'inscription
     return redirect(url_for('index'))
-
 
 
 
