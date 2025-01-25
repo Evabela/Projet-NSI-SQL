@@ -34,21 +34,32 @@ def recherche():
 
 @app.route('/exampleflask', methods=['POST', 'GET'])
 def exampleflask():
-    
     user=''
     if request.method == 'POST':
         user = request.form['nm']
         resp = make_response(render_template('exampleflask.html'))
         resp.set_cookie('userID', user)
     
-    return render_template('exampleflask.html', person = user, user_id = user)
+    conn = get_db_connection(DATABASE)  # Connexion à la base de données
+    curseur = conn.cursor()
+    datas = curseur.execute("SELECT * FROM infos_joueur WHERE name_id = 'Antoine'").fetchall()
+    datas = [dict(row) for row in datas]
+    conn.close()  # Fermer la connexion
+
+
+    return render_template('exampleflask.html', person = user, user_id = user, datas = datas)
 
 
 
 @app.route('/profil')
 def profil():
     username = request.cookies.get('username')
-    return render_template('profil.html', username = username)
+    conn = get_db_connection(DATABASE)  # Connexion à la base de données
+    curseur = conn.cursor()
+    datas = curseur.execute("SELECT * FROM infos_joueur WHERE name_id = ? ", (username,)).fetchall()
+    datas = [dict(row) for row in datas]
+    conn.close()  # Fermer la connexion
+    return render_template('profil.html', username = username, datas = datas)
 
 @app.route('/resultats')
 def resultats():
