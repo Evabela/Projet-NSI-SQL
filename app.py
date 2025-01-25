@@ -67,6 +67,7 @@ def resultats():
 
 @app.route('/inscription', methods=['POST'])
 def inscription():
+    error = None
     # Récupérer les données du formulaire
     username = request.form.get('username', None)  # Récupérer le champ "username"
     sexe = request.form.get('sexe', None)
@@ -84,6 +85,15 @@ def inscription():
     
     conn = get_db_connection(DATABASE)
     curseur = conn.cursor()
+            
+    nameid = [row[0] for row in curseur.execute('SELECT name_id FROM infos_joueur').fetchall()]
+
+    if username in nameid :
+        error = f"Le nom d'utilisateur {username} est déjà utilisé, veuillez en choisir un autre."
+        conn.commit()
+        conn.close()
+        return render_template('index.html', error = error)
+
     curseur.execute(
         'INSERT INTO infos_joueur (name_id, sexe, age, fav_game, screen_time_moy, heure_sommeil, addiction, nb_douches, nb_ex, fav_soda, fav_bonbons, pourcent_selfcontrol, discord) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',
         (username,sexe, age, jeu, temps, sommeil, addiction, douches, exs, soda, bonbon, selfcontrol, discord)
