@@ -87,27 +87,87 @@ def profil():
 
 @app.route('/resultats', methods=['POST', 'GET'])
 def resultats():
-    username = request.form.get('username', None)  # Récupérer le champ "username"
-    sexe = request.form.get('sexe', None)
-    age = request.form.get('age', None)
-    jeu = request.form.get('jeu', None)
-    temps = request.form.get('temps', None)
-    addiction = request.form.get('addiction', None)
-    douches = request.form.get('douches', None)
-    exs = request.form.get('exs', None)
-    soda = request.form.get('soda', None)
-    bonbon = request.form.get('bonbon', None)
-    selfcontrol = request.form.get('selfcontrol', None)
-    discord = request.form.get('discord', None)
-    sommeil = request.form.get('sommeil', None)
+    username = request.form.get('username')
+    sexe = request.form.get('sexe')
+    age = request.form.get('age')
+    jeu = request.form.get('jeu')
+    temps = request.form.get('temps')
+    addiction = request.form.get('addiction')
+    douches = request.form.get('douches')
+    exs = request.form.get('exs')
+    soda = request.form.get('soda')
+    bonbon = request.form.get('bonbon')
+    selfcontrol = request.form.get('selfcontrol')
+    discord = request.form.get('discord')
+    sommeil = request.form.get('sommeil')
 
     conn = get_db_connection(DATABASE)
     curseur = conn.cursor()
-    data = [row[0] for row in curseur.execute("SELECT name_id FROM infos_joueur WHERE sexe = ? OR age = ? OR fav_game = ? OR screen_time_moy = ? OR heure_sommeil = ? OR addiction = ? OR nb_douches = ? OR nb_ex = ? OR fav_soda = ? OR fav_bonbons = ? OR pourcent_selfcontrol = ? OR discord = ? OR name_id = ?",
-    (sexe, age, jeu, temps, sommeil, addiction, douches, exs, soda, bonbon, selfcontrol, discord, username)).fetchall()]
+
+    # Construire la requête dynamiquement
+    conditions = []
+    params = []
+
+    if sexe:
+        conditions.append("sexe = ?")
+        params.append(sexe)
+    if age:
+        try:
+            age = int(age)
+            conditions.append("age = ?")
+            params.append(age)
+        except ValueError:
+            pass  # Ignorer si non valide
+    if jeu:
+        conditions.append("fav_game = ?")
+        params.append(jeu)
+    if temps:
+        conditions.append("screen_time_moy = ?")
+        params.append(temps)
+    if addiction:
+        conditions.append("addiction = ?")
+        params.append(addiction)
+    if douches:
+        conditions.append("nb_douches = ?")
+        params.append(douches)
+    if exs:
+        conditions.append("nb_ex = ?")
+        params.append(exs)
+    if soda:
+        conditions.append("fav_soda = ?")
+        params.append(soda)
+    if bonbon:
+        conditions.append("fav_bonbons = ?")
+        params.append(bonbon)
+    if selfcontrol:
+        conditions.append("pourcent_selfcontrol = ?")
+        params.append(selfcontrol)
+    if discord:
+        conditions.append("discord = ?")
+        params.append(discord)
+    if sommeil:
+        conditions.append("heure_sommeil = ?")
+        params.append(sommeil)
+    if username:
+        conditions.append("name_id = ?")
+        params.append(username)
+
+    query = "SELECT name_id FROM infos_joueur"
+    if conditions:
+        query += " WHERE " + " OR ".join(conditions)
+
+    # Debugging
+    print("Requête SQL :", query)
+    print("Paramètres :", params)
+
+    curseur.execute(query, params)
+    data = [row[0] for row in curseur.fetchall()]
+
     conn.commit()
     conn.close()
-    return render_template('resultats.html', data = data)
+
+    return render_template('resultats.html', data=data)
+
 
 @app.route('/inscription', methods=['POST'])
 def inscription():
