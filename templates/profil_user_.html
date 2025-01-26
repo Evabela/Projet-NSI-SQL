@@ -45,76 +45,77 @@
         </section>
 
         <section id="modify">
-            <h2>Votre Profil</h2>
+            <h2>Informations</h2>
             <form action="{{ url_for('profil_user_', username = username )}}" method="POST">
                 <label for="username">Nom d'utilisateur :</label>
                 <br>
                 <br>
-                <input type="text" id="username" name="username" value="{% if username %}{{ username }}{% endif %}" required>
+                <input type="text" id="username" name="username" value="{% if username %}{{ username }}{% endif %}" readonly>
                 
                 <label for="age">Âge :</label>
                 <br>
                 <br>
-                <input type="number" id="age" name="age" value="{% if datas %}{{ datas[0]['age'] }}{% endif %}" required>
+                <input type="number" id="age" name="age" value="{% if datas %}{{ datas[0]['age'] }}{% endif %}" readonly>
                 
                 <label for="sexe">Sexe :</label>
                 <br>
                 <br>
-                <input type="text" id="sexe" name="sexe" value="{% if datas %}{{ datas[0]['sexe'] }}{% endif %}" required> 
+                <input type="text" id="sexe" name="sexe" value="{% if datas %}{{ datas[0]['sexe'] }}{% endif %}" readonly> 
                 
                 <label for="jeu">Jeu favori :</label>
                 <br>
                 <br>
-                <input type="text" id="jeu" name="jeu" value="{% if datas %}{{ datas[0]['fav_game'] }}{% endif %}">
-
+                <input type="text" id="jeu" name="jeu" value="{% if datas %}{{ datas[0]['fav_game'] }}{% endif %}" readonly>
+        
                 <label for="temps">Temps d'écran moyen (h/jour) :</label>
                 <br>
                 <br>
-                <input type="number" id="temps" name="temps" min="0" max="24" value="{% if datas %}{{ datas[0]['screen_time_moy'] }}{% endif %}" >
-
+                <input type="number" id="temps" name="temps" value="{% if datas %}{{ datas[0]['screen_time_moy'] }}{% endif %}" readonly>
+        
                 <label for="sommeil">Temps de sommeil (h/jour) :</label>
                 <br>
                 <br>
-                <input type="number" id="sommeil" name="sommeil" min="0" max="24" value="{% if datas %}{{ datas[0]['heure_sommeil'] }}{% endif %}" >
-
+                <input type="number" id="sommeil" name="sommeil" value="{% if datas %}{{ datas[0]['heure_sommeil'] }}{% endif %}" readonly>
+        
                 <label for="addiction">As-tu une addiction ? Si oui, laquelle :</label>
                 <br>
                 <br>
-                <input type="text" id="addiction" name="addiction" value="{% if datas %}{{ datas[0]['addiction'] }}{% endif %}" >
-
+                <input type="text" id="addiction" name="addiction" value="{% if datas %}{{ datas[0]['addiction'] }}{% endif %}" readonly>
+        
                 <label for="douches">Nombre de douches par semaine :</label>
                 <br>
                 <br>
-                <input type="number" id="douches" name="douches" min="0" max="60" value="{% if datas %}{{ datas[0]['nb_douches'] }}{% endif %}" >
-
+                <input type="number" id="douches" name="douches" value="{% if datas %}{{ datas[0]['nb_douches'] }}{% endif %}" readonly>
+        
                 <label for="exs">Nombre d'ex :</label>
                 <br>
                 <br>
-                <input type="number" id="exs" name="exs" min="0" value="{% if datas %}{{ datas[0]['nb_ex'] }}{% endif %}" >
-
+                <input type="number" id="exs" name="exs" value="{% if datas %}{{ datas[0]['nb_ex'] }}{% endif %}" readonly>
+        
                 <label for="soda">Soda favori :</label>
                 <br>
                 <br>
-                <input type="text" id="soda" name="soda" value="{% if datas %}{{ datas[0]['fav_soda'] }}{% endif %}" >
-
+                <input type="text" id="soda" name="soda" value="{% if datas %}{{ datas[0]['fav_soda'] }}{% endif %}" readonly>
+        
                 <label for="bonbon">Bonbon favori :</label>
                 <br>
                 <br>
-                <input type="text" id="bonbon" name="bonbon" value="{% if datas %}{{ datas[0]['fav_bonbons'] }}{% endif %}" >
-
+                <input type="text" id="bonbon" name="bonbon" value="{% if datas %}{{ datas[0]['fav_bonbons'] }}{% endif %}" readonly>
+        
                 <label for="selfcontrol">Pourcentage de self-control :</label>
                 <br>
                 <br>
-                <input type="number" id="selfcontrol" name="selfcontrol" min="0" max="100" value="{% if datas %}{{ datas[0]['pourcent_selfcontrol'] }}{% endif %}" >
-
+                <input type="number" id="selfcontrol" name="selfcontrol" value="{% if datas %}{{ datas[0]['pourcent_selfcontrol'] }}{% endif %}" readonly>
+        
                 <label for="discord">Ton Discord :</label>
                 <br>
                 <br>
-                <input type="text" id="discord" name="discord" value="{% if datas %}{{ datas[0]['discord'] }}{% endif %}" >
+                <input type="text" id="discord" name="discord" value="{% if datas %}{{ datas[0]['discord'] }}{% endif %}" readonly>
                 
-                <button type="modif">Retour aux recherches</button>
+                <button type="submit">Retour aux recherches</button>
             </form>
         </section>
+        
     </main>
 
     <footer> <!-- Pied de page -->

@@ -94,6 +94,9 @@ def profil_user_(username):
     datas = [dict(row) for row in datas]
     conn.close()
 
+    if request.method=='POST':
+        return redirect(url_for('recherche'))
+
 
     return render_template('profil_user_.html', username = username, datas = datas)
 
@@ -216,10 +219,6 @@ def inscription():
     )
     conn.commit() #validation des modifications 
     conn.close()
-
-
-
-
 
     #on le met à la fin car contient un return
     if request.method == 'POST':
