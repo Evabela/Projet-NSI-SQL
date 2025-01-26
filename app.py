@@ -51,7 +51,6 @@ def exampleflask():
     return render_template('exampleflask.html')
 
 
-
 @app.route('/profil', methods=['POST', 'GET'])
 def profil():
     username = request.cookies.get('username')
@@ -114,19 +113,19 @@ def resultats():
 def inscription():
     error = None
     # Récupérer les données du formulaire
-    username = request.form.get('username', None)  # Récupérer le champ "username"
-    sexe = request.form.get('sexe', None)
-    age = request.form.get('age', None)
-    jeu = request.form.get('jeu', None)
-    temps = request.form.get('temps', None)
-    addiction = request.form.get('addiction', None)
-    douches = request.form.get('douches', None)
-    exs = request.form.get('exs', None)
-    soda = request.form.get('soda', None)
-    bonbon = request.form.get('bonbon', None)
-    selfcontrol = request.form.get('selfcontrol', None)
-    discord = request.form.get('discord', None)
-    sommeil = request.form.get('sommeil', None)
+    username = request.form.get('username')  # Récupérer le champ "username"
+    sexe = request.form.get('sexe')
+    age = request.form.get('age')
+    jeu = request.form.get('jeu')
+    temps = request.form.get('temps')
+    addiction = request.form.get('addiction')
+    douches = request.form.get('douches')
+    exs = request.form.get('exs')
+    soda = request.form.get('soda')
+    bonbon = request.form.get('bonbon', )
+    selfcontrol = request.form.get('selfcontrol')
+    discord = request.form.get('discord')
+    sommeil = request.form.get('sommeil')
     
     conn = get_db_connection(DATABASE)
     curseur = conn.cursor()
@@ -154,9 +153,6 @@ def inscription():
 
     # Redirection vers la page d'accueil après l'inscription
     return redirect(url_for('index'))
-
-
-
 
 
 
