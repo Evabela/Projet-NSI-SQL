@@ -52,7 +52,7 @@ def exampleflask():
 
 
 
-@app.route('/profil', methods=['POST', 'GET'])
+@app.route('/profil')
 def profil():
     username = request.cookies.get('username')
     conn = get_db_connection(DATABASE)  # Connexion à la base de données
@@ -79,10 +79,6 @@ def profil():
         (sexe, age, jeu, temps, sommeil, addiction, douches, exs, soda, bonbon, selfcontrol, discord, username,))
     conn.commit()
 
-    datas = curseur.execute("SELECT * FROM infos_joueur WHERE name_id = ? ", (username,)).fetchall()
-    datas = [dict(row) for row in datas]
-
-
     conn.close()  # Fermer la connexion
     return render_template('profil.html', username = username, datas = datas)
 
@@ -104,7 +100,7 @@ def resultats():
 
     conn = get_db_connection(DATABASE)
     curseur = conn.cursor()
-    data = [row[0] for row in curseur.execute("SELECT name_id FROM infos_joueur WHERE sexe = ?, age = ?, fav_game= ?, screen_time_moy= ?, heure_sommeil= ?, addiction= ?, nb_douches= ?, nb_ex= ?, fav_soda = ?, fav_bonbons= ?, pourcent_selfcontrol= ?, discord= ? name_id= ?"
+    data = [row[0] for row in curseur.execute("SELECT name_id FROM infos_joueur WHERE sexe = ?, age = ?, fav_game= ?, screen_time_moy= ?, heure_sommeil= ?, addiction= ?, nb_douches= ?, nb_ex= ?, fav_soda = ?, fav_bonbons= ?, pourcent_selfcontrol= ?, discord= ? name_id= ?",
     (sexe, age, jeu, temps, sommeil, addiction, douches, exs, soda, bonbon, selfcontrol, discord, username,)).fetchall()]
     conn.commit()
     conn.close()
