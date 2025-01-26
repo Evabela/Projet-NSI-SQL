@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr"> <!-- Langue de la page -->
+<head>
+    <meta charset="UTF-8"><!-- Encodage de la page -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Planète Geek Dating - Le site de rencontre dédié aux passionnés de technologie, de science-fiction, de jeux vidéo et de culture geek.">
+    <title>Profil user - Planète Geek Dating</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href={{url_for('static', filename='logo rond.png')}} type="image/webp"><!-- icon de l'onglet -->
+</head>
+<body id="top"><!-- id pour le bouton remonter en haut -->
+    <header>
+        <div class="logo">
+            <!-- Logo du site -->
+            <img src="{{url_for('static', filename='logo circulaire.webp')}}" alt="Logo Planète Geek Dating">
+            <!-- Titre principal avec un lien vers l'accueil -->
+            <h1><a class="home_button" href="{{url_for('index')}}">Planète Geek Dating</a></h1>
+        </div>
+        <!-- Menu de navigation -->
+        <nav>
+            <ul><!-- Liste des liens -->
+                <li><a href="{{url_for('index')}}">Accueil</a></li>
+                <li><a href="{{url_for('index', section='signup')}}">Inscription</a></li>
+                <li><a href="{{url_for('Connexion')}}">Connexion</a></li>
+                <li><a href="{{url_for('Contacts')}}">Contact</a></li>
+                <li><a href="{{url_for('recherche')}}">Recherche</a></li>
+                <li><a href="{{url_for('profil')}}">Profil</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <main>
+        <section id="home">
+            <h2>Vous pouvez ici modifier vos informations !<!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Document</title>
+            </head>
+            <body>
+                
+            </body>
+        </section>
+
+        <section id="modify">
+            <h2>Votre Profil</h2>
+            <form action="{{ url_for('profil') }}" method="POST">
+                <label for="username">Nom d'utilisateur :</label>
+                <br>
+                <br>
+                <input type="text" id="username" name="username" placeholder="Ex : Elouan Musk" value="{% if username %}{{ username }}{% endif %}" required>
+                
+                <label for="age">Âge :</label>
+                <br>
+                <br>
+                <input type="number" id="age" name="age"placeholder="+ de 18 ans..." value="{% if datas %}{{ datas[0]['age'] }}{% endif %}" required>
+                
+                <label for="sexe">Sexe :</label>
+                <br>
+                <br>
+                <input type="text" id="sexe" name="sexe" placeholder="Ex : hélicoptère AC 130 de combat" value="{% if datas %}{{ datas[0]['sexe'] }}{% endif %}" required> 
+                
+                <label for="jeu">Jeu favori :</label>
+                <br>
+                <br>
+                <input type="text" id="jeu" name="jeu" placeholder="Ex : Zelda, League of Legends..." value="{% if datas %}{{ datas[0]['fav_game'] }}{% endif %}">
+
+                <label for="temps">Temps d'écran moyen (h/jour) :</label>
+                <br>
+                <br>
+                <input type="number" id="temps" name="temps" min="0" max="24" placeholder="Ex : 5" value="{% if datas %}{{ datas[0]['screen_time_moy'] }}{% endif %}" >
+
+                <label for="sommeil">Temps de sommeil (h/jour) :</label>
+                <br>
+                <br>
+                <input type="number" id="sommeil" name="sommeil" min="0" max="24" placeholder="Ex : 7" value="{% if datas %}{{ datas[0]['heure_sommeil'] }}{% endif %}" >
+
+                <label for="addiction">As-tu une addiction ? Si oui, laquelle :</label>
+                <br>
+                <br>
+                <input type="text" id="addiction" name="addiction" placeholder="Ex : Café, jeux..." value="{% if datas %}{{ datas[0]['addiction'] }}{% endif %}" >
+
+                <label for="douches">Nombre de douches par semaine :</label>
+                <br>
+                <br>
+                <input type="number" id="douches" name="douches" min="0" max="60" placeholder="Ex : 20" value="{% if datas %}{{ datas[0]['nb_douches'] }}{% endif %}" >
+
+                <label for="exs">Nombre d'ex :</label>
+                <br>
+                <br>
+                <input type="number" id="exs" name="exs" min="0" placeholder="Ex : 3" value="{% if datas %}{{ datas[0]['nb_ex'] }}{% endif %}" >
+
+                <label for="soda">Soda favori :</label>
+                <br>
+                <br>
+                <input type="text" id="soda" name="soda" placeholder="Ex : Coca-Cola, Fanta..." value="{% if datas %}{{ datas[0]['fav_soda'] }}{% endif %}" >
+
+                <label for="bonbon">Bonbon favori :</label>
+                <br>
+                <br>
+                <input type="text" id="bonbon" name="bonbon" placeholder="Ex : Dragibus, Haribo..." value="{% if datas %}{{ datas[0]['fav_bonbons'] }}{% endif %}" >
+
+                <label for="selfcontrol">Pourcentage de self-control :</label>
+                <br>
+                <br>
+                <input type="number" id="selfcontrol" name="selfcontrol" min="0" max="100" placeholder="Ex : 80" value="{% if datas %}{{ datas[0]['pourcent_selfcontrol'] }}{% endif %}" >
+
+                <label for="discord">Ton Discord :</label>
+                <br>
+                <br>
+                <input type="text" id="discord" name="discord" placeholder="Ex : GeekMaster#1234" value="{% if datas %}{{ datas[0]['discord'] }}{% endif %}" >
+                
+                <button type="modif">Modifier</button>
+            </form>
+        </section>
+    </main>
+
+    <footer> <!-- Pied de page -->
+        <p>&copy; 2025 Planète Geek Dating. Tous droits réservés.</p>
+        <ul>
+            <li><a href="#">Conditions d'utilisation</a></li>
+            <li><a href="">Politique de confidentialité</a></li>
+        </ul>
+    </footer>
+    <a href="#top" class="back-to-top" aria-label="Remonter en haut">⬆️</a> <!-- Remonter en haut -->
+</body>
+</html>
