@@ -1,267 +1,113 @@
-/* Global Styles */
+/* === Couleurs principales === */
+:root {
+    --primary-color: #00e5ff; /* Bleu lumineux pour les éléments principaux */
+    --secondary-color: #ff4dff; /* Rose pour les éléments interactifs */
+    --bg-color: #0d0d0d; /* Fond sombre */
+    --text-color: #ffffff; /* Texte blanc */
+}
+
+/* === Style de base === */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Arial', sans-serif; /* Police simple */
     margin: 0;
     padding: 0;
-    background-color: #0d0d0d;
-    color: #ffffff;
+    background-color: var(--bg-color); /* Fond noir défini avec une variable */
+    color: var(--text-color); /* Texte blanc défini avec une variable */
 }
 
-.iconPGD{
-    border-radius: 50%; /* Transforme l'image en cercle */
-    object-fit: cover; /* Ajuste l'image pour qu'elle remplisse bien le cadre */
-}
-
-.home_button,
-.home_button:visited,
-.home_button:hover,
-.home_button:focus {
-    color: white; /* Conserve la couleur blanche */
-    text-decoration: none; /* Aucune décoration */
-}
-
-header {
-    background: linear-gradient(135deg, #1a1a1a, #262626);
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid #4d4d4d;
-}
-
-header .logo {
-    display: flex;
-    align-items: center;
-}
-
-header .logo img {
-    height: 50px;
-    margin-right: 10px;
-    border-radius: 50%; /* Transforme l'image en cercle */
-    object-fit: cover;
-}
-
-header nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 20px;
-}
-
-header nav ul li a {
-    color: #00e5ff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-header nav ul li a:hover {
-    color: #ff4dff;
-}
-
-main {
-    padding: 40px 20px;
-    text-align: center;
-}
-
-main section {
-    margin-bottom: 60px;
-}
-
-main h2 {
-    font-size: 2rem;
-    color: #00e5ff;
-    text-shadow: 0 0 10px #00e5ff;
-}
-
-main p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 12px 30px;
-    background-color: #00e5ff;
-    color: #0d0d0d;
-    font-weight: bold;
-    border: 2px solid #00e5ff;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-}
-
-.cta-button:hover {
-    background-color: #ff4dff;
-    color: #fff;
-    border-color: #ff4dff;
-    transform: translateY(-3px);
-}
-
-form {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
-}
-
-
-
-
-
-form button {
-    width: 100%;
-    padding: 12px;
-    background-color: #00e5ff;
-    border: 2px solid #00e5ff;
-    border-radius: 8px;
-    font-weight: bold;
-    color: #0d0d0d;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-}
-
-form button:hover {
-    background-color: #ff4dff;
-    color: #fff;
-    border-color: #ff4dff;
-    transform: translateY(-3px);
-}
-
-footer {
-    background: linear-gradient(135deg, #1a1a1a, #262626);
-    padding: 20px;
-    text-align: center;
-    border-top: 2px solid #4d4d4d;
-}
-
-footer p {
-    margin: 0;
-    color: #00e5ff;
-}
-
-footer ul {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 10px;
-}
-
-footer ul li {
-    display: inline;
-    margin-right: 15px;
-}
-
-footer ul li a {
-    color: #ff4dff;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-footer ul li a:hover {
-    color: #00e5ff;
-}
-
-.contact-section {
-    padding: 40px 20px;
-    background-color: #1a1a1a;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 77, 255, 0.5);
-    max-width: 800px;
-    margin: 40px auto;
-    color: #ffffff;
-}
-
-.contact-section h2 {
-    font-size: 2rem;
-    color: #ff4dff;
-    margin-bottom: 20px;
-}
-
-.contact-section p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.contact-section ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.contact-section ul li {
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-form input, form select {
-    width:  95%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 2px solid #4d4d4d;
-    border-radius: 5px;
-    background-color: #1a1a1a;
-    color: #ffffff;
-    font-size: 1rem;
-    transition: border 0.3s ease;
-}
-
-form input:focus, form select:focus {
-    border-color: #00e5ff;
-    outline: none;
-}
-.profile-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.profile-card {
-    background-color: #1a1a1a;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
-    width: 300px;
-    color: #ffffff;
-    text-align: left;
-}
-
-.profile-card h3 {
-    font-size: 1.5rem;
-    color: #00e5ff;
-    margin-bottom: 10px;
-}
-
-.profile-card p {
-    margin: 5px 0;
-    line-height: 1.5;
-}
-/* Style de la flèche */
+/* === Bouton "Retour en haut" === */
 .back-to-top {
-    position: fixed;
+    position: fixed; /* Fixe le bouton en bas à droite */
     bottom: 20px;
     right: 20px;
     width: 50px;
     height: 50px;
-    background-color: #00e5ff;
-    color: #0d0d0d;
-    text-align: center;
-    line-height: 50px;
-    font-size: 2rem;
-    border-radius: 50%;
-    box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
-    text-decoration: none;
-    transition: all 0.3s ease;
+    background-color: var(--primary-color); /* Couleur principale */
+    color: var(--bg-color); /* Texte noir sur fond bleu */
+    text-align: center; /* Centre le contenu du bouton */
+    line-height: 50px; /* Aligne verticalement le texte */
+    font-size: 2rem; /* Taille de la flèche */
+    border-radius: 50%; /* Bouton rond */
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.5); /* Ombre légère pour l'effet 3D */
+    text-decoration: none; /* Pas de soulignement */
+    transition: all 0.3s ease; /* Animation fluide au survol */
 }
 
 .back-to-top:hover {
-    background-color: #ff4dff;
-    color: #ffffff;
-    transform: translateY(-3px);
+    background-color: var(--secondary-color); /* Passe au rose au survol */
+    color: var(--text-color); /* Passe au blanc pour contraster */
+    transform: translateY(-3px); /* Légère remontée au survol */
 }
 
+/* === Cartes de profil === */
+.profile-card {
+    background-color: #1a1a1a; /* Fond légèrement plus clair que le fond principal */
+    padding: 20px; /* Espace interne */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.5); /* Effet de lumière autour de la carte */
+    width: 300px; /* Taille fixe pour les cartes */
+    color: var(--text-color); /* Texte blanc */
+    text-align: left; /* Texte aligné à gauche */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation fluide pour le survol */
+}
 
+.profile-card:hover {
+    transform: scale(1.05); /* Agrandissement au survol */
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.7); /* Lumière plus intense au survol */
+}
+
+/* === Grille des cartes === */
+.profile-list {
+    display: flex; /* Les cartes sont alignées sur une ligne */
+    flex-wrap: wrap; /* Passe à la ligne suivante si l'espace manque */
+    gap: 20px; /* Espace entre les cartes */
+    justify-content: center; /* Centre les cartes dans la page */
+}
+
+/* === Formulaires === */
+form input, form select {
+    width: 95%; /* Largeur presque totale */
+    padding: 12px; /* Espace interne pour les champs */
+    margin-bottom: 20px; /* Espace entre les champs */
+    border: 2px solid #4d4d4d; /* Bordures grises */
+    border-radius: 5px; /* Coins légèrement arrondis */
+    background-color: #1a1a1a; /* Fond gris foncé */
+    color: var(--text-color); /* Texte blanc */
+    font-size: 1rem; /* Taille du texte des champs */
+    transition: border 0.3s ease; /* Animation fluide quand le champ est actif */
+}
+
+form input:focus, form select:focus {
+    border-color: var(--primary-color); /* Bordure bleue quand le champ est sélectionné */
+    outline: none; /* Supprime la bordure par défaut */
+}
+
+form button {
+    width: 100%; /* Le bouton prend toute la largeur */
+    padding: 12px; /* Espace interne */
+    background-color: var(--primary-color); /* Bleu principal */
+    border: 2px solid var(--primary-color); /* Bordure assortie */
+    border-radius: 8px; /* Coins arrondis */
+    font-weight: bold; /* Texte en gras */
+    color: var(--bg-color); /* Texte noir */
+    cursor: pointer; /* Change le curseur en main */
+    transition: all 0.3s ease; /* Animation fluide */
+}
+
+form button:hover {
+    background-color: var(--secondary-color); /* Passe au rose au survol */
+    color: var(--text-color); /* Texte blanc */
+    border-color: var(--secondary-color); /* Bordure assortie */
+    transform: translateY(-3px); /* Léger effet de remontée */
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+    .profile-list {
+        flex-direction: column; /* Les cartes s'empilent sur petit écran */
+        gap: 10px; /* Moins d'espace entre les cartes */
+    }
+    .profile-card {
+        width: 100%; /* Les cartes prennent toute la largeur */
+    }
+}
