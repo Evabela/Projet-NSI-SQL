@@ -32,7 +32,7 @@
 
     <main>
         <section id="home">
-            <h2>Voici les informations de {username} !<!DOCTYPE html>
+            <h2>Voici les informations de {{ username }} !<!DOCTYPE html>
             <html lang="en">
             <head>
                 <meta charset="UTF-8">
@@ -46,7 +46,7 @@
 
         <section id="modify">
             <h2>Votre Profil</h2>
-            <form action="{{ url_for('profil') }}" method="POST">
+            <form action="{{ url_for('profil_user_', username = username )}}" method="POST">
                 <label for="username">Nom d'utilisateur :</label>
                 <br>
                 <br>

@@ -86,9 +86,9 @@ def profil():
     return render_template('profil.html', username = username, datas = datas)
 
 
-@app.route('/profil_user', methods = ['POST','GET'])
-def profil_user():
-    error = None
+@app.route('/profil_user_/<username>')
+def profil_user_(username):
+   return render_template('profil_user_.html', username = username)
 
 @app.route('/resultats', methods=['POST', 'GET'])
 def resultats():
