@@ -35,12 +35,13 @@ def recherche():
 @app.route('/exampleflask', methods=['POST', 'GET'])
 def exampleflask():
     user=''
+    if request.method == 'POST':
+        user = request.form['nm']
+        resp = make_response(render_template('exampleflask.html'))
+        resp.set_cookie('userID', user)
+    
     conn = get_db_connection(DATABASE)  # Connexion à la base de données
     curseur = conn.cursor()
-    if request.method == 'POST':
-        curseur.execute("UPDATE infos_joueur SET sexe = 'Femme' WHERE name_id= 'Antoine'")
-    
-
     datas = curseur.execute("SELECT * FROM infos_joueur WHERE name_id = 'Antoine'").fetchall()
     datas = [dict(row) for row in datas]
     conn.close()  # Fermer la connexion
@@ -62,7 +63,12 @@ def profil():
 
 @app.route('/resultats')
 def resultats():
-    return render_template('resultats.html')
+        conn = get_db_connection(DATABASE)
+        curseur = conn.cursor()
+        nameid = [row[0] for row in curseur.execute('SELECT name_id FROM infos_joueur').fetchall()]
+        conn.commit()
+        conn.close()
+        return render_template('resultats.html')
 
 @app.route('/inscription', methods=['POST'])
 def inscription():
