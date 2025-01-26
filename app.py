@@ -100,7 +100,7 @@ def resultats():
 
     conn = get_db_connection(DATABASE)
     curseur = conn.cursor()
-    data = [row[0] for row in curseur.execute("SELECT name_id FROM infos_joueur WHERE sexe = ? ANDOR age = ? ANDOR fav_game = ? ANDOR screen_time_moy = ? ANDOR heure_sommeil = ? ANDOR addiction = ? ANDOR nb_douches = ? ANDOR nb_ex = ? ANDOR fav_soda = ? ANDOR fav_bonbons = ? ANDOR pourcent_selfcontrol = ? ANDOR discord = ? ANDOR name_id = ?",
+    data = [row[0] for row in curseur.execute("SELECT name_id FROM infos_joueur WHERE sexe = ? OR age = ? OR fav_game = ? OR screen_time_moy = ? OR heure_sommeil = ? OR addiction = ? OR nb_douches = ? OR nb_ex = ? OR fav_soda = ? OR fav_bonbons = ? OR pourcent_selfcontrol = ? OR discord = ? OR name_id = ?",
     (sexe, age, jeu, temps, sommeil, addiction, douches, exs, soda, bonbon, selfcontrol, discord, username)).fetchall()]
     conn.commit()
     conn.close()
