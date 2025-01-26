@@ -86,9 +86,15 @@ def profil():
     return render_template('profil.html', username = username, datas = datas)
 
 
-@app.route('/profil_user_/<username>')
+@app.route('/profil_user_/<username>', methods=['POST','GET'])
 def profil_user_(username):
-   return render_template('profil_user_.html', username = username)
+    conn = get_db_connection(DATABASE)  # Connexion à la base de données
+    curseur = conn.cursor()
+    datas = curseur.execute("SELECT * FROM infos_joueur WHERE name_id = ? ", (username,)).fetchall()
+    datas = [dict(row) for row in datas]
+
+
+    return render_template('profil_user_.html', username = username, datas = datas)
 
 @app.route('/resultats', methods=['POST', 'GET'])
 def resultats():
