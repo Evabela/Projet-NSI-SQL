@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Recherchez des membres sur Planète Geek Dating. Trouvez des personnes partageant vos passions geek.">
+    <title>Recherche - Planète Geek Dating</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href={{url_for('static', filename='logo rond.png')}} type="image/x-icon">
+</head>
+<body id="top">
+    <header>
+        <div class="logo">
+            <!-- Logo du site -->
+            <img src="{{url_for('static', filename='logo circulaire.webp')}}" alt="Logo Planète Geek Dating">
+            <!-- Titre principal avec un lien vers l'accueil -->
+            <h1><a class="home_button" href="{{url_for('index')}}">Planète Geek Dating</a></h1>
+        </div>
+        <!-- Menu de navigation -->
+        <nav>
+            <ul>
+                <li><a href="{{url_for('index')}}">Accueil</a></li>
+                <li><a href="{{url_for('index', section='signup')}}">Inscription</a></li>
+                <li><a href="{{url_for('Contacts')}}">Contact</a></li>
+                <li><a href="{{url_for('recherche')}}">Recherche</a></li>
+                <li><a href="{{url_for('profil')}}">Profil</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <main>
+        <section id="search">
+            <h2>Vous avez déjà un compte?</h2>
+            <p>Connectez-Vous</p>
+            <form action="{{url_for('resultats')}}" method="GET">
+                <label for="username">Nom d'utilisateur :</label>
+                <br>
+                <br>
+                <input type="text" id="username" placeholder="Elouan Musk" name="username" required>
+
+                <label for="age">Âge :</label>
+                <br>
+                <br>
+                <input type="number" id="age" name="age" min="18" max="100" placeholder="Ex : 25">
+
+                <label for="Mot de passe">Veuillez entrer votre mot de passe !</label>
+                <br>
+                <br>
+                <input type="text" id="motdepasse" name="mot de passe"  placeholder="Ex : Mon mot de passe">
+
+                <button type="submit">Connexion</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Planète Geek Dating. Tous droits réservés.</p>
+        <ul>
+            <li><a href="#terms">Conditions d'utilisation</a></li>
+            <li><a href="#privacy">Politique de confidentialité</a></li>
+        </ul>
+    </footer>
+    <a href="#top" class="back-to-top" aria-label="Remonter en haut">⬆️</a>
+</body>
+</html>
