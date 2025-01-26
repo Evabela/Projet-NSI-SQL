@@ -43,8 +43,7 @@ def exampleflask():
     curseur = conn.cursor()
 
     curseur.execute("UPDATE infos_joueur SET age = ? WHERE name_id = ?", ('18', 'Antoine'))
-    conn.close()  # Fermer la connexion
-
+    conn.close()
 
     return render_template('exampleflask.html')
 
