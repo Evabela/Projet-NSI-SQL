@@ -26,7 +26,11 @@
 
     <form action = "{{ url_for('exampleflask') }}" method = "POST">
         <p><h3>Enter userID</h3></p>
-        <p><input type = 'text' name = 'nm' value="{% if user_id %}{{ user_id }}{% endif %}"/></p>
+        <p><input type = 'text' name = 'nm' placeholder="Name" value="{% if user_id %}{{ user_id }}{% endif %}"/></p>
+        <p><h3>Enter age</h3></p>
+        <p><input type = 'text' name = 'age' placeholder="Age" value="{% if datas %}{{ datas[0]['age'] }}{% endif %}"/></p>
+        <p><h3>Enter gender</h3></p>
+        <p><input type = 'text' name = 'gdr' placeholder="Gender" value="{% if datas %}{{ datas[0]['sexe'] }}{% endif %}"/></p>
         <p><input type = 'submit' value = 'Login'/></p> 
     </form>
 

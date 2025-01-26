@@ -34,22 +34,32 @@ def recherche():
 
 @app.route('/exampleflask', methods=['POST', 'GET'])
 def exampleflask():
-    
     user=''
     if request.method == 'POST':
         user = request.form['nm']
         resp = make_response(render_template('exampleflask.html'))
         resp.set_cookie('userID', user)
     
-    return render_template('exampleflask.html', person = user, user_id = user)
+    conn = get_db_connection(DATABASE)  # Connexion à la base de données
+    curseur = conn.cursor()
+    datas = curseur.execute("SELECT * FROM infos_joueur WHERE name_id = 'Antoine'").fetchall()
+    datas = [dict(row) for row in datas]
+    conn.close()  # Fermer la connexion
+
+
+    return render_template('exampleflask.html', person = user, user_id = user, datas = datas)
 
 
 
 @app.route('/profil')
 def profil():
     username = request.cookies.get('username')
-
-    return render_template('profil.html', username = username)
+    conn = get_db_connection(DATABASE)  # Connexion à la base de données
+    curseur = conn.cursor()
+    datas = curseur.execute("SELECT * FROM infos_joueur WHERE name_id = ? ", (username,)).fetchall()
+    datas = [dict(row) for row in datas]
+    conn.close()  # Fermer la connexion
+    return render_template('profil.html', username = username, datas = datas)
 
 @app.route('/resultats')
 def resultats():
@@ -57,13 +67,9 @@ def resultats():
 
 @app.route('/inscription', methods=['POST'])
 def inscription():
+    error = None
     # Récupérer les données du formulaire
     username = request.form.get('username', None)  # Récupérer le champ "username"
-
-    if request.method == 'POST':
-        resp = make_response(render_template('index.html'))
-        resp.set_cookie('username', username)
-
     sexe = request.form.get('sexe', None)
     age = request.form.get('age', None)
     jeu = request.form.get('jeu', None)
@@ -79,6 +85,15 @@ def inscription():
     
     conn = get_db_connection(DATABASE)
     curseur = conn.cursor()
+            
+    nameid = [row[0] for row in curseur.execute('SELECT name_id FROM infos_joueur').fetchall()]
+
+    if username in nameid :
+        error = f"Le nom d'utilisateur {username} est déjà utilisé, veuillez en choisir un autre."
+        conn.commit()
+        conn.close()
+        return render_template('index.html', error = error)
+
     curseur.execute(
         'INSERT INTO infos_joueur (name_id, sexe, age, fav_game, screen_time_moy, heure_sommeil, addiction, nb_douches, nb_ex, fav_soda, fav_bonbons, pourcent_selfcontrol, discord) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',
         (username,sexe, age, jeu, temps, sommeil, addiction, douches, exs, soda, bonbon, selfcontrol, discord)
@@ -86,9 +101,14 @@ def inscription():
     conn.commit() #validation des modifications 
     conn.close()
 
+    #on le met à la fin car contient un return
+    if request.method == 'POST':
+        resp = make_response(render_template('index.html'))
+        resp.set_cookie('username', username)
+        return resp
+
     # Redirection vers la page d'accueil après l'inscription
     return redirect(url_for('index'))
-
 
 
 
