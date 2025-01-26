@@ -34,20 +34,14 @@ def recherche():
 
 @app.route('/exampleflask', methods=['POST', 'GET'])
 def exampleflask():
-    user=''
-    if request.method == 'POST':
-        user = request.form['nm']
-        resp = make_response(render_template('exampleflask.html'))
-        resp.set_cookie('userID', user)
-    
     conn = get_db_connection(DATABASE)  # Connexion à la base de données
     curseur = conn.cursor()
-    datas = curseur.execute("SELECT * FROM infos_joueur WHERE name_id = 'Antoine'").fetchall()
-    datas = [dict(row) for row in datas]
+
+    curseur.execute("UPDATE infos_joueur SET age = ? WHERE name_id = ?", ('18', 'Antoine'))
     conn.close()  # Fermer la connexion
 
 
-    return render_template('exampleflask.html', person = user, user_id = user, datas = datas)
+    return render_template('exampleflask.html')
 
 
 
