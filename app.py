@@ -37,15 +37,15 @@ def Connexion():
 def recherche():
     return render_template('recherche.html')
 
-@app.route('/exampleflask', methods=['POST'])
+@app.route('/exampleflask', methods=['POST', 'GET'])
 def exampleflask():
-    username = request.form.get('username', None)  # Récupérer le champ "username"
-    sexe = request.form.get('sexe', None)
+    username = request.form.get('nm', None)  # Récupérer le champ "username"
+    sexe = request.form.get('gdr', None)
     age = request.form.get('age', None)
     conn = get_db_connection(DATABASE)  # Connexion à la base de données
     curseur = conn.cursor()
 
-    curseur.execute("UPDATE infos_joueur SET sexe = ? age = ? WHERE name_id= ? ", ((sexe, age), username))
+    curseur.execute("UPDATE infos_joueur SET sexe = ?, age = ? WHERE name_id= ? ", (sexe, age, username,))
     conn.commit()
     conn.close()
 
