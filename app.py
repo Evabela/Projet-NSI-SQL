@@ -115,6 +115,10 @@ def inscription():
     # Redirection vers la page d'accueil après l'inscription
     return redirect(url_for('index'))
 
+@app.route('/Connexion')
+def Contacts():
+    return render_template('Connexion.html')
+
 
 
 
