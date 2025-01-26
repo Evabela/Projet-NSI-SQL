@@ -85,6 +85,11 @@ def profil():
     conn.close()  # Fermer la connexion
     return render_template('profil.html', username = username, datas = datas)
 
+
+@app.route('/profil_user', methods = ['POST','GET'])
+def profil_user():
+    error = None
+
 @app.route('/resultats', methods=['POST', 'GET'])
 def resultats():
     username = request.form.get('username')
@@ -204,6 +209,10 @@ def inscription():
     )
     conn.commit() #validation des modifications 
     conn.close()
+
+
+
+
 
     #on le met à la fin car contient un return
     if request.method == 'POST':
