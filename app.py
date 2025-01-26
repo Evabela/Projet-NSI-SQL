@@ -29,6 +29,7 @@ def Contacts():
 
 @app.route('/Connexion')
 def Connexion():
+    
     return render_template('Connexion.html')
 
 @app.route('/recherche')
