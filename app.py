@@ -42,7 +42,8 @@ def exampleflask():
     conn = get_db_connection(DATABASE)  # Connexion à la base de données
     curseur = conn.cursor()
 
-    curseur.execute("UPDATE infos_joueur SET age = ? WHERE name_id = ?", (45, 'Antoine'))
+    curseur.execute("UPDATE infos_joueur SET age = 18 WHERE name_id='Antoine'")
+    conn.commit()
     conn.close()
 
     return render_template('exampleflask.html')
