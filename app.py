@@ -63,11 +63,25 @@ def profil():
     conn.close()  # Fermer la connexion
     return render_template('profil.html', username = username, datas = datas)
 
-@app.route('/resultats')
+@app.route('/resultats', methods=['POST', 'GET'])
 def resultats():
+    username = request.form.get('username', None)  # Récupérer le champ "username"
+    sexe = request.form.get('sexe', None)
+    age = request.form.get('age', None)
+    jeu = request.form.get('jeu', None)
+    temps = request.form.get('temps', None)
+    addiction = request.form.get('addiction', None)
+    douches = request.form.get('douches', None)
+    exs = request.form.get('exs', None)
+    soda = request.form.get('soda', None)
+    bonbon = request.form.get('bonbon', None)
+    selfcontrol = request.form.get('selfcontrol', None)
+    discord = request.form.get('discord', None)
+    sommeil = request.form.get('sommeil', None)
+
     conn = get_db_connection(DATABASE)
     curseur = conn.cursor()
-    data = [row[0] for row in curseur.execute('SELECT name_id FROM infos_joueur').fetchall()]
+    data = [row[0] for row in curseur.execute('SELECT name_id FROM infos_joueur WHERE ?').fetchall()]
     conn.commit()
     conn.close()
     return render_template('resultats.html', data = data)
