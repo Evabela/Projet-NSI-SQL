@@ -29,6 +29,11 @@ def Contacts():
 
 @app.route('/Connexion')
 def Connexion():
+    username = request.form.get('username')
+    if request.method == 'POST':
+        resp = make_response(render_template('index.html'))
+        resp.set_cookie('username', username)
+        return resp
     return render_template('Connexion.html')
 
 @app.route('/recherche')
