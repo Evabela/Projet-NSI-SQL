@@ -44,7 +44,6 @@ def exampleflask():
     age = request.form.get('age', None)
     conn = get_db_connection(DATABASE)  # Connexion à la base de données
     curseur = conn.cursor()
-
     curseur.execute("UPDATE infos_joueur SET sexe = ?, age = ? WHERE name_id= ? ", (sexe, age, username,))
     conn.commit()
     conn.close()
@@ -60,6 +59,26 @@ def profil():
     curseur = conn.cursor()
     datas = curseur.execute("SELECT * FROM infos_joueur WHERE name_id = ? ", (username,)).fetchall()
     datas = [dict(row) for row in datas]
+
+
+    sexe = request.form.get('sexe', None)
+    age = request.form.get('age', None)
+    jeu = request.form.get('jeu', None)
+    temps = request.form.get('temps', None)
+    addiction = request.form.get('addiction', None)
+    douches = request.form.get('douches', None)
+    exs = request.form.get('exs', None)
+    soda = request.form.get('soda', None)
+    bonbon = request.form.get('bonbon', None)
+    selfcontrol = request.form.get('selfcontrol', None)
+    discord = request.form.get('discord', None)
+    sommeil = request.form.get('sommeil', None)
+
+
+    curseur.execute("UPDATE infos_joueur SET sexe = ?, age = ?, fav_game= ?, screen_time_moy= ?, heure_sommeil= ?, addiction= ?, nb_douches= ?, nb_ex= ?, fav_soda = ?, fav_bonbons= ?, pourcent_selfcontrol= ?, discord= ? WHERE name_id= ? ",
+        (sexe, age, jeu, temps, sommeil, addiction, douches, exs, soda, bonbon, selfcontrol, discord, username,))
+    conn.commit()
+
     conn.close()  # Fermer la connexion
     return render_template('profil.html', username = username, datas = datas)
 
