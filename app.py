@@ -92,6 +92,7 @@ def profil_user_(username):
     curseur = conn.cursor()
     datas = curseur.execute("SELECT * FROM infos_joueur WHERE name_id = ? ", (username,)).fetchall()
     datas = [dict(row) for row in datas]
+    conn.close()
 
 
     return render_template('profil_user_.html', username = username, datas = datas)
