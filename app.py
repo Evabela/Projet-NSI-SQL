@@ -12,17 +12,16 @@ def get_db_connection(DATABASE):
 
 @app.route('/')
 def index():
-    conn = get_db_connection(DATABASE)  # Connexion à la base de données
+    # Connexion à la base de données
+    conn = get_db_connection(DATABASE)
+    #permet d'exécuter les requêtes sql
     curseur = conn.cursor()
-    data = curseur.execute('SELECT * FROM infos_joueur').fetchall()  # Récupérer les données
-    for elt in data :
-        print(dict(elt))
-    print("Antoine datas")
-    anto = curseur.execute("SELECT * FROM infos_joueur WHERE name_id = 'Antoine'").fetchall()
-    anto = [dict(row) for row in anto]
-    print(anto[0]["age"])
-    conn.close()  # Fermer la connexion
-    return render_template('index.html', data = data)  # Passer les données à la page HTML
+    # Récupérer les données
+    data = curseur.execute('SELECT * FROM infos_joueur').fetchall()
+    # Fermer la connexion
+    conn.close()
+    # Passer les données à la page HTML si besoin
+    return render_template('index.html', data = data)
 
 @app.route('/Contacts')
 def Contacts():
@@ -32,13 +31,10 @@ def Contacts():
 def Connexion():
     return render_template('Connexion.html')
 
-
 @app.route('/recherche')
 def recherche():
     return render_template('recherche.html')
 
-@app.route('/exampleflask', methods=['POST', 'GET'])
-def exampleflask():
     username = request.form.get('nm', None)  # Récupérer le champ "username"
     sexe = request.form.get('gdr', None)
     age = request.form.get('age', None)
@@ -96,7 +92,6 @@ def profil_user_(username):
 
     if request.method=='POST':
         return redirect(url_for('recherche'))
-
 
     return render_template('profil_user_.html', username = username, datas = datas)
 
