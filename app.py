@@ -65,10 +65,10 @@ def profil():
 def resultats():
     conn = get_db_connection(DATABASE)
     curseur = conn.cursor()
-    nameid = [row[0] for row in curseur.execute('SELECT name_id FROM infos_joueur').fetchall()]
+    data = [row[0] for row in curseur.execute('SELECT name_id FROM infos_joueur').fetchall()]
     conn.commit()
     conn.close()
-    return render_template('resultats.html')
+    return render_template('resultats.html', data = data)
 
 @app.route('/inscription', methods=['POST'])
 def inscription():
