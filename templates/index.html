@@ -46,7 +46,7 @@
 
         <section id="signup"><!-- Section d'inscription -->
             <h2>Inscrivez-vous maintenant</h2>
-            <form action="#" method="POST">
+            <form action="{{ url_for('inscription') }}" method="POST">
                 <label for="username">Nom d'utilisateur :</label>
                 <br>
                 <br>
@@ -60,7 +60,7 @@
                 <label for="sexe">Sexe :</label>
                 <br>
                 <br>
-                <input type="text" id="sexe" name="sexe" placeholder="Ex : hélicoptère AC 130 de combat" required> 
+                <input type="text" id="sexe" name="sexe" placeholder="Ex : hélicoptère AC 130 de combat" > 
                 
                 <label for="jeu">Jeu favori :</label>
                 <br>
@@ -71,6 +71,11 @@
                 <br>
                 <br>
                 <input type="number" id="temps" name="temps" min="0" max="24" placeholder="Ex : 5">
+
+                <label for="sommeil">Temps de sommeil (h/jour) :</label>
+                <br>
+                <br>
+                <input type="number" id="sommeil" name="sommeil" min="0" max="24" placeholder="Ex : 7">
 
                 <label for="addiction">As-tu une addiction ? Si oui, laquelle :</label>
                 <br>

@@ -43,13 +43,13 @@
             </body>
         </section>
 
-        <section id="signup">
+        <section id="modify">
             <h2>Votre Profil</h2>
             <form action="#" method="POST">
-                <label for="username">Nom d'utilisateur :</label> 
+                <label for="username">Nom d'utilisateur :</label>
                 <br>
                 <br>
-                <input type="text" id="username" name="username" placeholder="Ex : Elouan Musk" required>
+                <input type="text" id="username" name="username" placeholder="Ex : Elouan Musk" value="{% if username %}{{ username }}{% endif %}" required>
                 
                 <label for="age">Âge :</label>
                 <br>
@@ -70,6 +70,11 @@
                 <br>
                 <br>
                 <input type="number" id="temps" name="temps" min="0" max="24" placeholder="Ex : 5">
+
+                <label for="sommeil">Temps de sommeil (h/jour) :</label>
+                <br>
+                <br>
+                <input type="number" id="sommeil" name="sommeil" min="0" max="24" placeholder="Ex : 7">
 
                 <label for="addiction">As-tu une addiction ? Si oui, laquelle :</label>
                 <br>
@@ -106,7 +111,7 @@
                 <br>
                 <input type="text" id="discord" name="discord" placeholder="Ex : GeekMaster#1234">
                 
-                <button type="submit">S'inscrire</button>
+                <button type="modif">Modifier</button>
             </form>
         </section>
     </main>
