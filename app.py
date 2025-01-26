@@ -122,8 +122,12 @@ def resultats():
         conditions.append("fav_game = ?")
         params.append(jeu)
     if temps:
-        conditions.append("screen_time_moy = ?")
-        params.append(temps)
+        try:
+            temps = int(temps)
+            conditions.append("temps = ?")
+            params.append(temps)
+        except ValueError:
+            pass  # Ignorer si non valide
     if addiction:
         conditions.append("addiction = ?")
         params.append(addiction)
