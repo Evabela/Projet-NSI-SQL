@@ -28,6 +28,11 @@ def index():
 def Contacts():
     return render_template('Contacts.html')
 
+@app.route('/Connexion')
+def Connexion():
+    return render_template('Connexion.html')
+
+
 @app.route('/recherche')
 def recherche():
     return render_template('recherche.html')
