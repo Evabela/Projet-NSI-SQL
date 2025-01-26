@@ -35,6 +35,12 @@
             <h2>Recherchez des membres</h2>
             <p>Utilisez les filtres ci-dessous pour trouver des membres qui partagent vos centres d'intérêt geek.</p>
             <form action="{{url_for('resultats')}}" method="GET">
+
+                <label for="nom">Nom d'utilisateur :</label>
+                <br>
+                <br>
+                <input type="text" id="nom" name="nom" placeholder="Ex : Elouan Musk">
+
                 <label for="age">Âge :</label>
                 <br>
                 <br>
