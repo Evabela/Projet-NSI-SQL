@@ -35,17 +35,6 @@ def Connexion():
 def recherche():
     return render_template('recherche.html')
 
-    username = request.form.get('nm', None)  # Récupérer le champ "username"
-    sexe = request.form.get('gdr', None)
-    age = request.form.get('age', None)
-    conn = get_db_connection(DATABASE)  # Connexion à la base de données
-    curseur = conn.cursor()
-    curseur.execute("UPDATE infos_joueur SET sexe = ?, age = ? WHERE name_id= ? ", (sexe, age, username,))
-    conn.commit()
-    conn.close()
-
-    return render_template('exampleflask.html')
-
 
 @app.route('/profil', methods=['POST', 'GET'])
 def profil():
@@ -183,7 +172,7 @@ def resultats():
 def inscription():
     error = None
     # Récupérer les données du formulaire
-    username = request.form.get('username')  # Récupérer le champ "username"
+    username = request.form.get('username')
     sexe = request.form.get('sexe')
     age = request.form.get('age')
     jeu = request.form.get('jeu')
