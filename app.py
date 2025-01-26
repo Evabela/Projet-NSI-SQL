@@ -116,7 +116,7 @@ def inscription():
     return redirect(url_for('index'))
 
 @app.route('/Connexion')
-def Contacts():
+def Connexion():
     return render_template('Connexion.html')
 
 
