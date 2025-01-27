@@ -124,7 +124,7 @@ def resultats():
     if temps:
         try:
             temps = int(temps)
-            conditions.append("temps = ?")
+            conditions.append("screen_time_moy = ?")
             params.append(temps)
         except ValueError:
             pass  # Ignorer si non valide
@@ -190,6 +190,7 @@ def inscription():
     selfcontrol = request.form.get('selfcontrol')
     discord = request.form.get('discord')
     sommeil = request.form.get('sommeil')
+    motdepasse = request.form.get('')
     
     conn = get_db_connection(DATABASE)
     curseur = conn.cursor()
