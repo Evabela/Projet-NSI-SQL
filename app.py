@@ -190,7 +190,7 @@ def inscription():
     selfcontrol = request.form.get('selfcontrol')
     discord = request.form.get('discord')
     sommeil = request.form.get('sommeil')
-    motdepasse = request.form.get('')
+    motdepasse = request.form.get('mdp')
     
     conn = get_db_connection(DATABASE)
     curseur = conn.cursor()
@@ -204,8 +204,8 @@ def inscription():
         return render_template('index.html', error = error)
 
     curseur.execute(
-        'INSERT INTO infos_joueur (name_id, sexe, age, fav_game, screen_time_moy, heure_sommeil, addiction, nb_douches, nb_ex, fav_soda, fav_bonbons, pourcent_selfcontrol, discord) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',
-        (username,sexe, age, jeu, temps, sommeil, addiction, douches, exs, soda, bonbon, selfcontrol, discord)
+        'INSERT INTO infos_joueur (name_id, sexe, age, fav_game, screen_time_moy, heure_sommeil, addiction, nb_douches, nb_ex, fav_soda, fav_bonbons, pourcent_selfcontrol, discord,mdp) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
+        (username,sexe, age, jeu, temps, sommeil, addiction, douches, exs, soda, bonbon, selfcontrol, discord,motdepasse)
     )
     conn.commit() #validation des modifications 
     conn.close()
