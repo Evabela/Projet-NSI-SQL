@@ -34,7 +34,13 @@
         <section id="search">
             <h2>Vous avez déjà un compte?</h2>
             <p>Connectez-Vous</p>
-            <form action="{{url_for('profil')}}" method="GET">
+            <form action="{{url_for('Connexion')}}" method="POST">
+                {% if error %}
+                <p>{{ error }}</p>
+                <br>
+                {% endif %}
+                
+
                 <label for="username">Nom d'utilisateur :</label>
                 <br>
                 <br>
@@ -43,12 +49,12 @@
                 <label for="age">Âge :</label>
                 <br>
                 <br>
-                <input type="number" id="age" name="age" min="18" max="100" placeholder="Ex : 25">
+                <input type="number" id="age" name="age" min="18" max="100" placeholder="Ex : 25" required>
 
                 <label for="Mot de passe">Veuillez entrer votre mot de passe !</label>
                 <br>
                 <br>
-                <input type="password" id="motdepasse" name="mot de passe"  placeholder="Ex : Mon mot de passe">
+                <input type="password" id="motdepasse" name="motdepasse"  placeholder="Ex : Mon mot de passe" required>
 
                 <button type="submit">Connexion</button>
             </form>

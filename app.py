@@ -27,13 +27,35 @@ def index():
 def Contacts():
     return render_template('Contacts.html')
 
-@app.route('/Connexion')
+@app.route('/Connexion', methods = ['POST', 'GET'])
 def Connexion():
-    
-    return render_template('Connexion.html')
+    error = None
+    username = request.form.get('username')
+    age = request.form.get('age')
+    mdp = request.form.get('motdepasse')
+    if request.method == 'POST':
+        conn = get_db_connection(DATABASE)  # Connexion à la base de données
+        curseur = conn.cursor()
+        nameid = [row[0] for row in curseur.execute("SELECT name_id FROM infos_joueur").fetchall()]
 
-@app.route('/recherche')
+        if username in nameid :
+            datas = curseur.execute("SELECT name_id, age, mdp FROM infos_joueur WHERE name_id = ?", (username,)).fetchall()
+            datas = [dict(row) for row in datas]
+
+            print(datas)
+            if age == datas[0]['age'] and mdp == datas[0]['mdp']:
+                conn.close()
+                resp = make_response(render_template('connexion.html'))
+                resp.set_cookie('username', username)
+                return resp
+    
+        error = "Une ou plusieurs des informations saisies sont incorrectes."
+
+    return render_template('Connexion.html', error=error)
+
+@app.route('/recherche', methods=['POST', 'GET'])
 def recherche():
+
     return render_template('recherche.html')
 
 
