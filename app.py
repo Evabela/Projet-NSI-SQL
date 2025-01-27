@@ -33,6 +33,7 @@ def Connexion():
     username = request.form.get('username')
     age = request.form.get('age')
     mdp = request.form.get('motdepasse')
+
     if request.method == 'POST':
         conn = get_db_connection(DATABASE)  # Connexion à la base de données
         curseur = conn.cursor()
@@ -45,11 +46,12 @@ def Connexion():
             print(datas)
             if age == datas[0]['age'] and mdp == datas[0]['mdp']:
                 conn.close()
-                resp = make_response(render_template('connexion.html'))
+                resp = make_response(render_template('profil.html'))
                 resp.set_cookie('username', username)
                 return resp
     
-        error = "Une ou plusieurs des informations saisies sont incorrectes."
+        else :
+            error = "Une ou plusieurs des informations saisies sont incorrectes."
 
     return render_template('Connexion.html', error=error)
 
