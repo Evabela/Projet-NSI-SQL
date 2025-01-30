@@ -57,7 +57,6 @@ def Connexion():
 
 @app.route('/recherche', methods=['POST', 'GET'])
 def recherche():
-
     return render_template('recherche.html')
 
 
